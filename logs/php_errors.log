@@ -1,0 +1,17 @@
+[03-Dec-2025 22:37:23 Asia/Kolkata] Post-Email Cleanup: Starting cleanup for booking: unknown
+[03-Dec-2025 22:37:23 Asia/Kolkata] Post-Email Cleanup error: PDF file not found: \path\to\non_existent.pdf
+[03-Dec-2025 22:37:23 Asia/Kolkata] Post-Email Cleanup: Starting cleanup for booking: unknown
+[03-Dec-2025 22:37:23 Asia/Kolkata] Post-Email Cleanup error: PDF path is empty
+[03-Dec-2025 23:05:24 Asia/Kolkata] PHP Fatal error:  Cannot redeclare formatBytes() (previously declared in D:\SEMESTER - VII\php2\cleanup-after-submission.php:233) in D:\SEMESTER - VII\php2\cleanup-after-email.php on line 357
+[03-Dec-2025 23:05:32 Asia/Kolkata] PHP Fatal error:  Cannot redeclare formatBytes() (previously declared in D:\SEMESTER - VII\php2\cleanup-after-submission.php:233) in D:\SEMESTER - VII\php2\cleanup-after-email.php on line 357
+[03-Dec-2025 23:09:20 Asia/Kolkata] Cleanup: Starting cleanup for draft: test_draft_1764783560
+[03-Dec-2025 23:09:20 Asia/Kolkata] Cleanup: Draft file not found: D:\SEMESTER - VII\php2\uploads\drafts\test_draft_1764783560.json
+[03-Dec-2025 23:09:20 Asia/Kolkata] PHP Fatal error:  Cannot redeclare formatBytes() (previously declared in D:\SEMESTER - VII\php2\cleanup-after-submission.php:233) in D:\SEMESTER - VII\php2\cleanup-after-email.php on line 373
+[03-Dec-2025 23:09:32 Asia/Kolkata] Cleanup: Starting cleanup for draft: test_draft_1764783572
+[03-Dec-2025 23:09:32 Asia/Kolkata] Cleanup: Draft file not found: D:\SEMESTER - VII\php2\uploads\drafts\test_draft_1764783572.json
+[03-Dec-2025 23:09:32 Asia/Kolkata] PHP Fatal error:  Cannot redeclare formatBytes() (previously declared in D:\SEMESTER - VII\php2\cleanup-after-submission.php:233) in D:\SEMESTER - VII\php2\cleanup-after-email.php on line 373
+[03-Dec-2025 23:10:11 Asia/Kolkata] cleanupAfterEmail() CALLED with PDF: pdfs/test.pdf
+[03-Dec-2025 23:10:11 Asia/Kolkata] Post-Email Cleanup: Starting cleanup for booking: TEST
+[03-Dec-2025 23:10:11 Asia/Kolkata] Post-Email Cleanup: PDF path to delete: pdfs/test.pdf
+[03-Dec-2025 23:10:11 Asia/Kolkata] Post-Email Cleanup ERROR: PDF file not found: D:\SEMESTER - VII\php2\pdfs\test.pdf
+[03-Dec-2025 23:10:11 Asia/Kolkata] Post-Email Cleanup: Cleanup aborted - 0 files deleted before error, 0 files remain
