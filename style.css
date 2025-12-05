@@ -348,7 +348,7 @@ small {
 }
 
 .btn-primary {
-    background: #2196F3;
+    background: #D32F2F;
     color: white;
 }
 
@@ -362,7 +362,8 @@ small {
 }
 
 .btn-secondary:hover {
-    background: #d0d0d0;
+    background: #848383;
+    color: white;
 }
 
 .btn-success {
@@ -375,7 +376,7 @@ small {
 }
 
 .btn-info {
-    background: #2196F3;
+    background: #D32F2F;
     color: white;
 }
 

@@ -47,19 +47,7 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
 
                 <div class="form-group">
                     <label>Inspection Expert City <span class="required">*</span></label>
-                    <select name="expert_city" required>
-                        <option value="">Select City</option>
-                        <option value="New Delhi A">New Delhi A</option>
-                        <option value="New Delhi B">New Delhi B</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Hyderabad">Hyderabad</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Kolkata">Kolkata</option>
-                        <option value="Pune">Pune</option>
-                        <option value="Ahmedabad">Ahmedabad</option>
-                        <option value="Jaipur">Jaipur</option>
-                    </select>
+                    <input type="text" name="expert_city" required placeholder="Enter city name...">
                 </div>
 
                 <div class="form-group">
@@ -1498,7 +1486,6 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 <button type="submit" class="btn btn-success" id="submitBtn" style="display:none;">Submit</button>
                 <button type="button" class="btn btn-info" id="saveDraftBtn">Save Draft</button>
                 <button type="button" class="btn btn-secondary" id="discardDraftBtn">Discard Draft</button>
-                <button type="button" class="btn btn-warning" id="tSubmitBtn" style="background: #ff9800; color: white; font-weight: bold;">🔍 T-SUBMIT (Test PDF)</button>
             </div>
 
             <!-- Loading Overlay -->

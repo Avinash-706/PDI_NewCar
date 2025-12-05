@@ -11,7 +11,7 @@ return [
         'fields' => [
             'booking_id' => ['label' => 'Booking ID', 'type' => 'text', 'required' => true],
             'expert_name' => ['label' => 'Assigned Expert Name', 'type' => 'text', 'required' => true],
-            'expert_city' => ['label' => 'Inspection Expert City', 'type' => 'select', 'required' => true],
+            'expert_city' => ['label' => 'Inspection Expert City', 'type' => 'text', 'required' => true],
             'customer_name' => ['label' => 'Customer Name', 'type' => 'text', 'required' => true],
             'customer_phone' => ['label' => 'Customer Phone Number', 'type' => 'text', 'required' => false],
             'inspection_date' => ['label' => 'Date', 'type' => 'date', 'required' => true],

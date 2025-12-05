@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('prevBtn').addEventListener('click', prevStep);
     document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
     document.getElementById('discardDraftBtn').addEventListener('click', discardDraft);
-    document.getElementById('tSubmitBtn').addEventListener('click', testSubmit);
     
     // Fetch location button (only if it exists)
     const fetchLocationBtn = document.getElementById('fetchLocation');
@@ -600,8 +599,8 @@ function saveDraft() {
     console.log('Saving draft...');
     const form = document.getElementById('inspectionForm');
     
-    // Get the current draft ID
-    const currentDraftId = localStorage.getItem('draftId') || draftId || '';
+    // Get the current draft ID (only if it exists and is not empty)
+    const currentDraftId = localStorage.getItem('draftId') || draftId || null;
     
     // Collect uploaded files from both global variable and localStorage
     let allUploadedFiles = {};
@@ -626,10 +625,14 @@ function saveDraft() {
     // Collect all form data as JSON for better structure
     const draftData = {
         current_step: currentStep,
-        draft_id: currentDraftId,
         form_data: {},
         uploaded_files: allUploadedFiles
     };
+    
+    // Only include draft_id if it exists and is not empty
+    if (currentDraftId && currentDraftId.trim() !== '') {
+        draftData.draft_id = currentDraftId;
+    }
     
     // Collect all form fields with proper handling for arrays
     const inputs = form.querySelectorAll('input:not([type="file"]), select, textarea');
@@ -734,6 +737,18 @@ function saveDraft() {
 
 function loadDraft() {
     console.log('Loading draft...');
+    
+    // Check if draft was just discarded
+    if (sessionStorage.getItem('draftDiscarded') === 'true') {
+        console.log('Draft was discarded, skipping load');
+        sessionStorage.removeItem('draftDiscarded');
+        // Clear any remaining localStorage items
+        localStorage.removeItem('draftId');
+        localStorage.removeItem('savedFiles');
+        localStorage.removeItem('uploadedFiles');
+        return;
+    }
+    
     const storedDraftId = localStorage.getItem('draftId');
     
     if (!storedDraftId) {
@@ -1022,6 +1037,9 @@ function discardDraft() {
 }
 
 function completeDiscardCleanup() {
+    // Set a flag to prevent draft loading after discard
+    sessionStorage.setItem('draftDiscarded', 'true');
+    
     // Clear ALL localStorage items
     localStorage.removeItem('draftId');
     localStorage.removeItem('savedFiles');
@@ -1029,8 +1047,10 @@ function completeDiscardCleanup() {
     localStorage.removeItem('uploadedFiles');
     localStorage.clear(); // Nuclear option - clear everything
     
-    // Clear sessionStorage too
+    // Clear sessionStorage except the discard flag
+    const discardFlag = sessionStorage.getItem('draftDiscarded');
     sessionStorage.clear();
+    sessionStorage.setItem('draftDiscarded', discardFlag);
     
     // Clear global variables
     if (typeof uploadedFiles !== 'undefined') {
@@ -1394,191 +1414,6 @@ uploadStyle.textContent = `
 `;
 document.head.appendChild(uploadStyle);
 
-
-// ============================================================================
-// T-SUBMIT: Test PDF Generation for Current Progress
-// ============================================================================
-function testSubmit(event) {
-    event.preventDefault();
-    
-    console.log('T-SUBMIT: Generating test PDF for steps 1-' + currentStep);
-    
-    // Show loading
-    const tSubmitBtn = document.getElementById('tSubmitBtn');
-    const originalText = tSubmitBtn.textContent;
-    tSubmitBtn.textContent = '⏳ Generating PDF...';
-    tSubmitBtn.disabled = true;
-    
-    // Collect all form data up to current step
-    const form = document.getElementById('inspectionForm');
-    const formData = new FormData();
-    
-    // Add current step info
-    formData.append('test_mode', 'true');
-    formData.append('current_step', currentStep);
-    formData.append('total_steps', totalSteps);
-    
-    // Collect all form inputs
-    const inputs = form.querySelectorAll('input, textarea, select');
-    inputs.forEach(input => {
-        // Get the step number for this input
-        const stepElement = input.closest('.form-step');
-        const inputStep = stepElement ? parseInt(stepElement.getAttribute('data-step')) : 1;
-        
-        // Only include inputs from completed steps (up to current step)
-        if (inputStep <= currentStep) {
-            if (input.type === 'checkbox' || input.type === 'radio') {
-                if (input.checked) {
-                    formData.append(input.name, input.value);
-                }
-            } else if (input.type === 'file') {
-                // Skip file inputs - we'll use uploaded files
-            } else if (input.name) {
-                formData.append(input.name, input.value);
-            }
-        }
-    });
-    
-    // Add progressively uploaded file paths
-    for (const fieldName in uploadedFiles) {
-        formData.append('existing_' + fieldName, uploadedFiles[fieldName]);
-    }
-    
-    // Add saved files from localStorage
-    const savedFiles = JSON.parse(localStorage.getItem('savedFiles') || '{}');
-    for (const fieldName in savedFiles) {
-        // Only add if not already added from uploadedFiles
-        if (!uploadedFiles[fieldName]) {
-            formData.append('existing_' + fieldName, savedFiles[fieldName]);
-        }
-    }
-    
-    console.log('T-SUBMIT: Sending data to t-submit.php...');
-    
-    // Send to test submit handler
-    fetch('t-submit.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        tSubmitBtn.textContent = originalText;
-        tSubmitBtn.disabled = false;
-        
-        if (data.success) {
-            console.log('T-SUBMIT: PDF generated successfully!', data.pdf_path);
-            
-            // Show success message with download link
-            const message = `✅ Test PDF Generated Successfully!\n\n` +
-                          `Steps Included: 1-${currentStep}\n` +
-                          `PDF Path: ${data.pdf_path}\n\n` +
-                          `Click OK to download the PDF.`;
-            
-            if (confirm(message)) {
-                // Open PDF in new tab
-                window.open(data.pdf_path, '_blank');
-            }
-            
-            // Also show a temporary success banner
-            showTestPdfBanner(data.pdf_path, currentStep);
-        } else {
-            console.error('T-SUBMIT: Error:', data.message);
-            alert('❌ Test PDF Generation Failed:\n\n' + data.message);
-        }
-    })
-    .catch(error => {
-        tSubmitBtn.textContent = originalText;
-        tSubmitBtn.disabled = false;
-        
-        console.error('T-SUBMIT: Fetch error:', error);
-        alert('❌ Error generating test PDF:\n\n' + error.message);
-    });
-}
-
-// Show temporary success banner for test PDF
-function showTestPdfBanner(pdfPath, stepsIncluded) {
-    // Remove existing banner if any
-    const existingBanner = document.getElementById('testPdfBanner');
-    if (existingBanner) {
-        existingBanner.remove();
-    }
-    
-    // Create banner
-    const banner = document.createElement('div');
-    banner.id = 'testPdfBanner';
-    banner.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #4CAF50;
-        color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        z-index: 10000;
-        max-width: 400px;
-        animation: slideIn 0.3s ease-out;
-    `;
-    
-    banner.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <div style="font-size: 32px;">✅</div>
-            <div style="flex: 1;">
-                <div style="font-weight: bold; font-size: 16px; margin-bottom: 5px;">
-                    Test PDF Generated!
-                </div>
-                <div style="font-size: 14px; opacity: 0.9;">
-                    Steps 1-${stepsIncluded} included
-                </div>
-                <a href="${pdfPath}" target="_blank" onclick="event.stopPropagation();" style="color: white; text-decoration: underline; font-size: 14px; display: inline-block; margin-top: 8px; cursor: pointer;">
-                    📄 Open PDF
-                </a>
-            </div>
-            <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer; padding: 0; line-height: 1;">
-                ×
-            </button>
-        </div>
-    `;
-    
-    document.body.appendChild(banner);
-    
-    // Auto-remove after 10 seconds
-    setTimeout(() => {
-        if (banner.parentElement) {
-            banner.style.animation = 'slideOut 0.3s ease-in';
-            setTimeout(() => banner.remove(), 300);
-        }
-    }, 10000);
-}
-
-// Add CSS animation
-if (!document.getElementById('testPdfStyles')) {
-    const style = document.createElement('style');
-    style.id = 'testPdfStyles';
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
 
 // Setup camera capture for all file inputs
 function setupCameraCapture() {

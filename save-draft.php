@@ -48,7 +48,11 @@ try {
     }
     
     // Generate unique draft ID (or use existing one)
-    $draftId = $inputData['draft_id'] ?? uniqid('draft_', true);
+    // Ensure draft_id is never empty
+    $draftId = $inputData['draft_id'] ?? '';
+    if (empty($draftId) || trim($draftId) === '') {
+        $draftId = uniqid('draft_', true);
+    }
     
     // Prepare draft data with proper structure
     $draftData = [

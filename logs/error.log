@@ -531,3 +531,222 @@
 [05-Dec-2025 00:35:05 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_123_1764875091.pdf
 [05-Dec-2025 00:35:05 Asia/Kolkata] === SMTP PHASE COMPLETE ===
 [05-Dec-2025 00:35:05 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+[05-Dec-2025 18:05:53 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 39
+[05-Dec-2025 18:05:53 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:05:53 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:05:53 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:05:53 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:05:53 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:05:53 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:05:53 Asia/Kolkata] Total files processed: 2
+[05-Dec-2025 18:05:53 Asia/Kolkata] Generating PDF with 2 images
+[05-Dec-2025 18:05:54 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_1_1764938154.pdf
+[05-Dec-2025 18:05:54 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6932a4c99ea1f8.96413989
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6932a4c99ea1f8.96413989
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/payment_proof_1764926665_b3292dac.jpg
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_payment_proof_1764926665_b3292dac.jpg
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/photo_of_issues_1764938151_02a4deb9.jpg
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_photo_of_issues_1764938151_02a4deb9.jpg
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted audit log: D:\SEMESTER - VII\pdiNew\drafts\audit\draft_6932a4c99ea1f8.96413989.log
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNew\uploads\drafts\draft_6932a4c99ea1f8.96413989.json
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6932a4c99ea1f8.96413989 - Deleted 2 images, 1 files, Freed 849.39 KB
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Draft deleted - 2 images, 849.39 KB freed
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1764938153_6932d1a96deb7.png
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_300x225_compressed_submission_1764938153_6932d1a96deb7.png
+[05-Dec-2025 18:05:54 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1764938153_6932d1a96deb7.png
+[05-Dec-2025 18:05:54 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[05-Dec-2025 18:05:54 Asia/Kolkata] Draft deleted: Yes
+[05-Dec-2025 18:05:54 Asia/Kolkata] Images deleted: 3
+[05-Dec-2025 18:05:54 Asia/Kolkata] Compressed deleted: 1
+[05-Dec-2025 18:05:54 Asia/Kolkata] Uniform deleted: 1
+[05-Dec-2025 18:05:54 Asia/Kolkata] Thumbnails deleted: 0
+[05-Dec-2025 18:05:54 Asia/Kolkata] Total space freed: 1.02 MB
+[05-Dec-2025 18:05:54 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[05-Dec-2025 18:05:54 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[05-Dec-2025 18:06:05 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_1_1764938154.pdf
+[05-Dec-2025 18:06:05 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[05-Dec-2025 18:06:05 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+[05-Dec-2025 18:06:32 Asia/Kolkata] Draft file missing during load: uploads/drafts/payment_proof_1764926665_b3292dac.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\payment_proof_1764926665_b3292dac.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/payment_proof_1764926665_b3292dac.jpg)
+[05-Dec-2025 18:06:32 Asia/Kolkata] Draft file missing during load: uploads/drafts/photo_of_issues_1764938151_02a4deb9.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\photo_of_issues_1764938151_02a4deb9.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/photo_of_issues_1764938151_02a4deb9.jpg)
+[05-Dec-2025 18:06:36 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 39
+[05-Dec-2025 18:06:36 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:06:36 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:06:36 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:06:36 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:06:36 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:06:36 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:06:36 Asia/Kolkata] Total files processed: 0
+[05-Dec-2025 18:06:36 Asia/Kolkata] Generating PDF with 0 images
+[05-Dec-2025 18:06:37 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_1_1764938197.pdf
+[05-Dec-2025 18:06:37 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[05-Dec-2025 18:06:37 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6932a4c99ea1f8.96413989
+[05-Dec-2025 18:06:37 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6932a4c99ea1f8.96413989
+[05-Dec-2025 18:06:37 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNew\uploads\drafts\draft_6932a4c99ea1f8.96413989.json
+[05-Dec-2025 18:06:37 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6932a4c99ea1f8.96413989 - Deleted 0 images, 1 files, Freed 1.47 KB
+[05-Dec-2025 18:06:37 Asia/Kolkata] Cleanup: Draft deleted - 0 images, 1.47 KB freed
+[05-Dec-2025 18:06:37 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[05-Dec-2025 18:06:37 Asia/Kolkata] Draft deleted: Yes
+[05-Dec-2025 18:06:37 Asia/Kolkata] Images deleted: 0
+[05-Dec-2025 18:06:37 Asia/Kolkata] Compressed deleted: 0
+[05-Dec-2025 18:06:37 Asia/Kolkata] Uniform deleted: 0
+[05-Dec-2025 18:06:37 Asia/Kolkata] Thumbnails deleted: 0
+[05-Dec-2025 18:06:37 Asia/Kolkata] Total space freed: 1.47 KB
+[05-Dec-2025 18:06:37 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[05-Dec-2025 18:06:37 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[05-Dec-2025 18:06:48 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_1_1764938197.pdf
+[05-Dec-2025 18:06:48 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[05-Dec-2025 18:06:48 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+[05-Dec-2025 18:06:48 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 36
+[05-Dec-2025 18:06:48 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:06:48 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:06:48 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:06:48 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:06:48 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:06:48 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:06:48 Asia/Kolkata] Total files processed: 0
+[05-Dec-2025 18:06:48 Asia/Kolkata] Generating PDF with 0 images
+[05-Dec-2025 18:06:49 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_1_1764938209.pdf
+[05-Dec-2025 18:06:49 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[05-Dec-2025 18:06:49 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[05-Dec-2025 18:06:49 Asia/Kolkata] Draft deleted: No
+[05-Dec-2025 18:06:49 Asia/Kolkata] Images deleted: 0
+[05-Dec-2025 18:06:49 Asia/Kolkata] Compressed deleted: 0
+[05-Dec-2025 18:06:49 Asia/Kolkata] Uniform deleted: 0
+[05-Dec-2025 18:06:49 Asia/Kolkata] Thumbnails deleted: 0
+[05-Dec-2025 18:06:49 Asia/Kolkata] PHP Error: Call to undefined function formatBytes() in D:\SEMESTER - VII\pdiNew\submit.php on line 232
+[05-Dec-2025 18:06:49 Asia/Kolkata] Stack trace: #0 {main}
+[05-Dec-2025 18:11:39 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 38
+[05-Dec-2025 18:11:39 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:11:39 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:11:39 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:11:39 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:11:39 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:11:39 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:11:39 Asia/Kolkata] Total files processed: 2
+[05-Dec-2025 18:11:39 Asia/Kolkata] Generating PDF with 2 images
+[05-Dec-2025 18:11:40 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_213_1764938500.pdf
+[05-Dec-2025 18:11:40 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6932d2de84ff97.78898332
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6932d2de84ff97.78898332
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_photo_1764938462_0e193b68.jpg
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_photo_1764938462_0e193b68.jpg
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/photo_of_issues_1764938494_4db6d070.jpg
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_photo_of_issues_1764938494_4db6d070.jpg
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted audit log: D:\SEMESTER - VII\pdiNew\drafts\audit\draft_6932d2de84ff97.78898332.log
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNew\uploads\drafts\draft_6932d2de84ff97.78898332.json
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6932d2de84ff97.78898332 - Deleted 2 images, 1 files, Freed 2.49 MB
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Draft deleted - 2 images, 2.49 MB freed
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1764938499_6932d3037dc2a.png
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_300x225_compressed_submission_1764938499_6932d3037dc2a.png
+[05-Dec-2025 18:11:40 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1764938499_6932d3037dc2a.png
+[05-Dec-2025 18:11:40 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[05-Dec-2025 18:11:40 Asia/Kolkata] Draft deleted: Yes
+[05-Dec-2025 18:11:40 Asia/Kolkata] Images deleted: 3
+[05-Dec-2025 18:11:40 Asia/Kolkata] Compressed deleted: 1
+[05-Dec-2025 18:11:40 Asia/Kolkata] Uniform deleted: 1
+[05-Dec-2025 18:11:40 Asia/Kolkata] Thumbnails deleted: 0
+[05-Dec-2025 18:11:40 Asia/Kolkata] Total space freed: 4.47 MB
+[05-Dec-2025 18:11:40 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[05-Dec-2025 18:11:40 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[05-Dec-2025 18:11:51 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_213_1764938500.pdf
+[05-Dec-2025 18:11:51 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[05-Dec-2025 18:11:51 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+[05-Dec-2025 18:12:09 Asia/Kolkata] Draft file missing during load: uploads/drafts/car_photo_1764938462_0e193b68.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\car_photo_1764938462_0e193b68.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/car_photo_1764938462_0e193b68.jpg)
+[05-Dec-2025 18:12:09 Asia/Kolkata] Draft file missing during load: uploads/drafts/photo_of_issues_1764938494_4db6d070.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\photo_of_issues_1764938494_4db6d070.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/photo_of_issues_1764938494_4db6d070.jpg)
+[05-Dec-2025 18:12:50 Asia/Kolkata] Draft file missing during load: uploads/drafts/car_photo_1764938462_0e193b68.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\car_photo_1764938462_0e193b68.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/car_photo_1764938462_0e193b68.jpg)
+[05-Dec-2025 18:12:50 Asia/Kolkata] Draft file missing during load: uploads/drafts/photo_of_issues_1764938494_4db6d070.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\photo_of_issues_1764938494_4db6d070.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/photo_of_issues_1764938494_4db6d070.jpg)
+[05-Dec-2025 18:12:53 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 38
+[05-Dec-2025 18:12:53 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:12:53 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:12:53 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:12:53 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:12:53 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:12:53 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:12:53 Asia/Kolkata] Total files processed: 0
+[05-Dec-2025 18:12:53 Asia/Kolkata] Generating PDF with 0 images
+[05-Dec-2025 18:12:54 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_213_1764938573.pdf
+[05-Dec-2025 18:12:54 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[05-Dec-2025 18:12:54 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6932d2de84ff97.78898332
+[05-Dec-2025 18:12:54 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6932d2de84ff97.78898332
+[05-Dec-2025 18:12:54 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNew\uploads\drafts\draft_6932d2de84ff97.78898332.json
+[05-Dec-2025 18:12:54 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6932d2de84ff97.78898332 - Deleted 0 images, 1 files, Freed 1.41 KB
+[05-Dec-2025 18:12:54 Asia/Kolkata] Cleanup: Draft deleted - 0 images, 1.41 KB freed
+[05-Dec-2025 18:12:54 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[05-Dec-2025 18:12:54 Asia/Kolkata] Draft deleted: Yes
+[05-Dec-2025 18:12:54 Asia/Kolkata] Images deleted: 0
+[05-Dec-2025 18:12:54 Asia/Kolkata] Compressed deleted: 0
+[05-Dec-2025 18:12:54 Asia/Kolkata] Uniform deleted: 0
+[05-Dec-2025 18:12:54 Asia/Kolkata] Thumbnails deleted: 0
+[05-Dec-2025 18:12:54 Asia/Kolkata] Total space freed: 1.41 KB
+[05-Dec-2025 18:12:54 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[05-Dec-2025 18:12:54 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[05-Dec-2025 18:13:04 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_213_1764938573.pdf
+[05-Dec-2025 18:13:04 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[05-Dec-2025 18:13:04 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+[05-Dec-2025 18:30:57 Asia/Kolkata] Draft file missing during load: uploads/drafts/car_photo_1764939626_257376a4.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\car_photo_1764939626_257376a4.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/car_photo_1764939626_257376a4.jpg)
+[05-Dec-2025 18:31:11 Asia/Kolkata] Draft file missing during load: uploads/drafts/car_photo_1764939626_257376a4.jpg (tried: D:\SEMESTER - VII\pdiNew\uploads\drafts\car_photo_1764939626_257376a4.jpg, D:\SEMESTER - VII\pdiNew/uploads/drafts/car_photo_1764939626_257376a4.jpg)
+[05-Dec-2025 18:40:26 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 35
+[05-Dec-2025 18:40:26 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:40:26 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:40:26 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:40:26 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:40:26 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:40:26 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:40:26 Asia/Kolkata] Submission error: Required field missing: inspection_delayed in D:\SEMESTER - VII\pdiNew\submit.php on line 53
+[05-Dec-2025 18:40:26 Asia/Kolkata] Stack trace: #0 {main}
+2025-12-05 18:40:26 - Submission error: Required field missing: inspection_delayed - Context: {"booking_id":"123r","expert_name":"","expert_city":"","customer_name":"","customer_phone":"","inspection_date":"","inspection_time":"","inspection_address":"","car":"","lead_owner":"","pending_amount":"","amount_paid":"","car_company":"","car_variant":"","car_registered_state":"","car_registered_city":"","engine_capacity":"","car_colour":"","car_km_reading":"","car_keys_available":"","chassis_number":"","engine_number":"","check_all_buttons":"","ac_cool_temperature":"","ac_hot_temperature":"","tyre_size":"","driver_front_tyre_date":"","driver_back_tyre_date":"","passenger_back_tyre_date":"","passenger_front_tyre_date":"","stepney_tyre_date":"","tool_kit":"Present","issues_found_in_car":"sa","draft_id":"draft_6932d9a10abf95.85310515","existing_tool_kit_image":"uploads\/drafts\/tool_kit_image_1764940210_fb12a9d0.jpg"}
+[05-Dec-2025 18:40:30 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 35
+[05-Dec-2025 18:40:30 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:40:30 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:40:30 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:40:30 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:40:30 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:40:30 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:40:30 Asia/Kolkata] Submission error: Required field missing: inspection_delayed in D:\SEMESTER - VII\pdiNew\submit.php on line 53
+[05-Dec-2025 18:40:30 Asia/Kolkata] Stack trace: #0 {main}
+2025-12-05 18:40:30 - Submission error: Required field missing: inspection_delayed - Context: {"booking_id":"123r","expert_name":"","expert_city":"","customer_name":"","customer_phone":"","inspection_date":"","inspection_time":"","inspection_address":"","car":"","lead_owner":"","pending_amount":"","amount_paid":"","car_company":"","car_variant":"","car_registered_state":"","car_registered_city":"","engine_capacity":"","car_colour":"","car_km_reading":"","car_keys_available":"","chassis_number":"","engine_number":"","check_all_buttons":"","ac_cool_temperature":"","ac_hot_temperature":"","tyre_size":"","driver_front_tyre_date":"","driver_back_tyre_date":"","passenger_back_tyre_date":"","passenger_front_tyre_date":"","stepney_tyre_date":"","tool_kit":"Present","issues_found_in_car":"sa","draft_id":"draft_6932d9a10abf95.85310515","existing_tool_kit_image":"uploads\/drafts\/tool_kit_image_1764940210_fb12a9d0.jpg"}
+[05-Dec-2025 18:40:58 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 35
+[05-Dec-2025 18:40:58 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:40:58 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:40:58 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:40:58 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:40:58 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:40:58 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:40:58 Asia/Kolkata] Submission error: Required field missing: inspection_delayed in D:\SEMESTER - VII\pdiNew\submit.php on line 53
+[05-Dec-2025 18:40:58 Asia/Kolkata] Stack trace: #0 {main}
+2025-12-05 18:40:58 - Submission error: Required field missing: inspection_delayed - Context: {"booking_id":"123r","expert_name":"","expert_city":"","customer_name":"","customer_phone":"","inspection_date":"","inspection_time":"","inspection_address":"","car":"","lead_owner":"","pending_amount":"","amount_paid":"","car_company":"","car_variant":"","car_registered_state":"","car_registered_city":"","engine_capacity":"","car_colour":"","car_km_reading":"","car_keys_available":"","chassis_number":"","engine_number":"","check_all_buttons":"","ac_cool_temperature":"","ac_hot_temperature":"","tyre_size":"","driver_front_tyre_date":"","driver_back_tyre_date":"","passenger_back_tyre_date":"","passenger_front_tyre_date":"","stepney_tyre_date":"","tool_kit":"Present","issues_found_in_car":"sa","draft_id":"draft_6932d9a10abf95.85310515","existing_tool_kit_image":"uploads\/drafts\/tool_kit_image_1764940210_fb12a9d0.jpg"}
+[05-Dec-2025 18:42:03 Asia/Kolkata] Form submission received. Files count: 68, POST fields: 39
+[05-Dec-2025 18:42:03 Asia/Kolkata] Step 4 Checkbox Debug:
+[05-Dec-2025 18:42:03 Asia/Kolkata]   registration_certificate: NOT SET
+[05-Dec-2025 18:42:03 Asia/Kolkata]   car_insurance: NOT SET
+[05-Dec-2025 18:42:03 Asia/Kolkata]   car_finance_noc: NOT SET
+[05-Dec-2025 18:42:03 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[05-Dec-2025 18:42:03 Asia/Kolkata]   bifuel_certification: NOT SET
+[05-Dec-2025 18:42:03 Asia/Kolkata] Total files processed: 2
+[05-Dec-2025 18:42:03 Asia/Kolkata] Generating PDF with 2 images
+[05-Dec-2025 18:42:04 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_123r_1764940324.pdf
+[05-Dec-2025 18:42:04 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6932d9a10abf95.85310515
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6932d9a10abf95.85310515
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/tool_kit_image_1764940210_fb12a9d0.jpg
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_tool_kit_image_1764940210_fb12a9d0.jpg
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_photo_1764940305_79a2952e.jpg
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_photo_1764940305_79a2952e.jpg
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleted audit log: D:\SEMESTER - VII\pdiNew\drafts\audit\draft_6932d9a10abf95.85310515.log
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNew\uploads\drafts\draft_6932d9a10abf95.85310515.json
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6932d9a10abf95.85310515 - Deleted 2 images, 1 files, Freed 406.05 KB
+[05-Dec-2025 18:42:04 Asia/Kolkata] Cleanup: Draft deleted - 2 images, 406.05 KB freed
+[05-Dec-2025 18:42:04 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[05-Dec-2025 18:42:04 Asia/Kolkata] Draft deleted: Yes
+[05-Dec-2025 18:42:04 Asia/Kolkata] Images deleted: 2
+[05-Dec-2025 18:42:04 Asia/Kolkata] Compressed deleted: 0
+[05-Dec-2025 18:42:04 Asia/Kolkata] Uniform deleted: 0
+[05-Dec-2025 18:42:04 Asia/Kolkata] Thumbnails deleted: 0
+[05-Dec-2025 18:42:04 Asia/Kolkata] Total space freed: 406.05 KB
+[05-Dec-2025 18:42:04 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[05-Dec-2025 18:42:04 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[05-Dec-2025 18:42:14 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_123r_1764940324.pdf
+[05-Dec-2025 18:42:14 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[05-Dec-2025 18:42:14 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+2025-12-05 18:43:16 - Draft load error: Draft not found - Context: {"draft_id":"draft_6932d9a10abf95.85310515"}
