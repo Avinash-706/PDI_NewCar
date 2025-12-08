@@ -20,7 +20,6 @@ return [
             'obd_scanning' => ['label' => 'OBD Scanning', 'type' => 'radio', 'required' => true],
             'car' => ['label' => 'Car', 'type' => 'text', 'required' => false],
             'lead_owner' => ['label' => 'Lead Owner', 'type' => 'text', 'required' => false],
-            'pending_amount' => ['label' => 'Pending Amount', 'type' => 'number', 'required' => false],
         ]
     ],
     
@@ -35,17 +34,8 @@ return [
         ]
     ],
     
-    // STEP 3: Expert Details
+    // STEP 3: Car Images
     3 => [
-        'title' => 'Expert Details',
-        'fields' => [
-            'inspection_delayed' => ['label' => 'Inspection 45 Minutes Delayed', 'type' => 'radio', 'required' => true],
-            'car_photo' => ['label' => 'Your Photo with car number plate', 'type' => 'file', 'required' => true],
-        ]
-    ],
-    
-    // STEP 4: Car Images
-    4 => [
         'title' => 'Car Images',
         'fields' => [
             'car_image_front' => ['label' => 'Front', 'type' => 'file', 'required' => true],
@@ -56,6 +46,46 @@ return [
         ]
     ],
     
+    // STEP 4: Engine
+    4 => [
+        'title' => 'Engine',
+        'fields' => [
+            'car_start' => ['label' => 'Car Start', 'type' => 'radio', 'required' => true],
+            'wiring' => ['label' => 'Wiring', 'type' => 'radio', 'required' => true],
+            'engine_condition' => ['label' => 'Engine Condition', 'type' => 'radio', 'required' => true],
+            'engine_condition_image' => ['label' => 'Engine Condition Image', 'type' => 'file', 'required' => true],
+            'engine_noise' => ['label' => 'Engine Noise', 'type' => 'radio', 'required' => true],
+            'engine_noise_image' => ['label' => 'Engine Noise Image', 'type' => 'file', 'required' => false],
+            'engine_oil' => ['label' => 'Engine Oil', 'type' => 'radio', 'required' => true],
+            'engine_oil_image' => ['label' => 'Engine Oil Image', 'type' => 'file', 'required' => false],
+            'engine_oil_leakage' => ['label' => 'Engine Oil Leakage', 'type' => 'radio', 'required' => true],
+            'engine_oil_leakage_image' => ['label' => 'Engine Oil Leakage Image', 'type' => 'file', 'required' => false],
+            'engine_oil_quality' => ['label' => 'Engine Oil Quality', 'type' => 'radio', 'required' => true],
+            'engine_oil_cap' => ['label' => 'Engine Oil Cap', 'type' => 'radio', 'required' => true],
+            'smoke_from_dipstick' => ['label' => 'Smoke from dipstick point', 'type' => 'radio', 'required' => true],
+            'back_compression' => ['label' => 'Back Compression', 'type' => 'radio', 'required' => true],
+            'back_compression_image' => ['label' => 'Back Compression Image', 'type' => 'file', 'required' => false],
+            'engine_mounting_components' => ['label' => 'Engine Mounting and Components', 'type' => 'radio', 'required' => true],
+            'ac_compressor_mounting' => ['label' => 'AC Compressor Mounting', 'type' => 'radio', 'required' => true],
+            'engine_vibration' => ['label' => 'Engine Vibration', 'type' => 'radio', 'required' => true],
+            'hoses' => ['label' => 'Hoses', 'type' => 'radio', 'required' => true],
+            'coolant' => ['label' => 'Coolant', 'type' => 'radio', 'required' => true],
+            'coolant_image' => ['label' => 'Coolant Image', 'type' => 'file', 'required' => false],
+            'brake_oil' => ['label' => 'Brake Oil', 'type' => 'radio', 'required' => true],
+            'brake_oil_image' => ['label' => 'Brake Oil Image', 'type' => 'file', 'required' => false],
+            'battery' => ['label' => 'Battery', 'type' => 'radio', 'required' => true],
+            'battery_image' => ['label' => 'Battery Image', 'type' => 'file', 'required' => true],
+            'transmission_oil_leakage' => ['label' => 'Transmission oil leakage', 'type' => 'radio', 'required' => true],
+            'ac_fan_belt' => ['label' => 'AC Fan Belt', 'type' => 'radio', 'required' => true],
+            'engine_fan_belt' => ['label' => 'Engine Fan Belt', 'type' => 'radio', 'required' => true],
+            'radiator_fan' => ['label' => 'Radiator fan', 'type' => 'radio', 'required' => true],
+            'radiator_condition' => ['label' => 'Radiator Condition', 'type' => 'radio', 'required' => true],
+            'exhaust_pipe' => ['label' => 'Exhaust Pipe', 'type' => 'radio', 'required' => true],
+            'exhaust_sound' => ['label' => 'Exhaust Sound', 'type' => 'radio', 'required' => true],
+            'smoke_emission' => ['label' => 'Smoke Emission', 'type' => 'radio', 'required' => true],
+        ]
+    ],
+    
     // STEP 5: Car Details
     5 => [
         'title' => 'Car Details',
@@ -63,8 +93,7 @@ return [
             'car_company' => ['label' => 'Car Company', 'type' => 'text', 'required' => true],
             'car_variant' => ['label' => 'Car Variant', 'type' => 'text', 'required' => true],
             'car_registered_state' => ['label' => 'Car Registered State', 'type' => 'text', 'required' => true],
-            'car_registered_city' => ['label' => 'Car Registered City', 'type' => 'text', 'required' => false],
-            'fuel_type' => ['label' => 'Fuel Type', 'type' => 'radio', 'required' => true],
+            'fuel_type' => ['label' => 'Fuel Type', 'type' => 'checkbox', 'required' => true],
             'engine_capacity' => ['label' => 'Engine Capacity (CC)', 'type' => 'text', 'required' => true],
             'transmission' => ['label' => 'Transmission Type', 'type' => 'radio', 'required' => true],
             'car_colour' => ['label' => 'Car Color', 'type' => 'text', 'required' => true],
@@ -94,7 +123,7 @@ return [
         'title' => 'OBD Scan',
         'fields' => [
             'fault_code_present' => ['label' => 'Any Fault Code Present', 'type' => 'radio', 'required' => true],
-            'obd_scan_photo' => ['label' => 'OBD Scan Photo', 'type' => 'file', 'required' => true],
+            'obd_scan_photo' => ['label' => 'OBD Scan Photo', 'type' => 'file', 'required' => false], // Conditionally required via JS
         ]
     ],
     
@@ -139,7 +168,6 @@ return [
             'dashboard_condition' => ['label' => 'Dashboard Condition', 'type' => 'radio', 'required' => true],
             'window_passenger_side' => ['label' => 'Window Passenger Side', 'type' => 'radio', 'required' => true],
             'seat_adjustment_passenger_rear' => ['label' => 'Seat Adjustment Passenger Rear Side', 'type' => 'radio', 'required' => true],
-            'check_all_buttons' => ['label' => 'Check All Buttons', 'type' => 'text', 'required' => false],
         ]
     ],
     
@@ -148,9 +176,8 @@ return [
         'title' => 'Air Conditioning',
         'fields' => [
             'ac_turning_on' => ['label' => 'Air Conditioning Turning On', 'type' => 'radio', 'required' => true],
-            'ac_cool_temperature' => ['label' => 'AC Cool Temperature', 'type' => 'text', 'required' => false],
-            'ac_hot_temperature' => ['label' => 'AC Hot Temperature', 'type' => 'text', 'required' => false],
-            'ac_image' => ['label' => 'Air Condition Image at Fan Max Speed', 'type' => 'file', 'required' => false],
+            'ac_cool' => ['label' => 'AC Cool', 'type' => 'file', 'required' => true],
+            'ac_hot' => ['label' => 'AC Hot', 'type' => 'file', 'required' => true],
             'ac_direction_mode' => ['label' => 'Air Condition Direction Mode Working', 'type' => 'radio', 'required' => true],
             'defogger_front_vent' => ['label' => 'De Fogger Front Vent Working', 'type' => 'radio', 'required' => true],
             'defogger_rear_vent' => ['label' => 'De Fogger rear Vent Working', 'type' => 'radio', 'required' => true],
@@ -195,6 +222,7 @@ return [
         'title' => 'Under Body',
         'fields' => [
             'fuel_leaks_under_body' => ['label' => 'Any Fuel Leaks under Body', 'type' => 'radio', 'required' => true],
+            'fuel_leaks_image' => ['label' => 'Fuel Leaks Image', 'type' => 'file', 'required' => false], // Conditionally required via JS
             'underbody_left' => ['label' => 'Underbody Left', 'type' => 'file', 'required' => true],
             'underbody_rear' => ['label' => 'Underbody Rear', 'type' => 'file', 'required' => true],
             'underbody_front' => ['label' => 'Underbody Front', 'type' => 'file', 'required' => true],
@@ -216,7 +244,11 @@ return [
         'title' => 'Final Result',
         'fields' => [
             'issues_found_in_car' => ['label' => 'Any Issues Found in Car', 'type' => 'textarea', 'required' => true],
-            'photo_of_issues' => ['label' => 'Photo of Issues', 'type' => 'file', 'required' => false],
+            'issue_photo_1' => ['label' => 'Issue Photo 1', 'type' => 'file', 'required' => false],
+            'issue_photo_2' => ['label' => 'Issue Photo 2', 'type' => 'file', 'required' => false],
+            'issue_photo_3' => ['label' => 'Issue Photo 3', 'type' => 'file', 'required' => false],
+            'issue_photo_4' => ['label' => 'Issue Photo 4', 'type' => 'file', 'required' => false],
+            'issue_photo_5' => ['label' => 'Issue Photo 5', 'type' => 'file', 'required' => false],
         ]
     ],
 ];

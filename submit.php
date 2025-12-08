@@ -47,7 +47,7 @@ try {
     error_log("  bifuel_certification: " . (isset($_POST['bifuel_certification']) ? print_r($_POST['bifuel_certification'], true) : 'NOT SET'));
     
     // Validate required fields
-    $requiredFields = ['booking_id', 'inspection_delayed'];
+    $requiredFields = ['booking_id'];
     foreach ($requiredFields as $field) {
         if (empty($_POST[$field])) {
             throw new Exception("Required field missing: $field");

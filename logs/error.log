@@ -1,0 +1,69 @@
+[08-Dec-2025 13:06:04 Asia/Kolkata] Deleted replaced image: uploads/drafts/coolant_image_1765179360_a25e69c3.jpg
+[08-Dec-2025 13:06:04 Asia/Kolkata] Deleted replaced thumbnail: uploads/drafts\thumb_coolant_image_1765179360_a25e69c3.jpg
+[08-Dec-2025 13:06:13 Asia/Kolkata] Deleted replaced image: uploads/drafts/engine_oil_leakage_image_1765179222_ba1b0f83.jpg
+[08-Dec-2025 13:06:13 Asia/Kolkata] Deleted replaced thumbnail: uploads/drafts\thumb_engine_oil_leakage_image_1765179222_ba1b0f83.jpg
+[08-Dec-2025 13:36:02 Asia/Kolkata] Form submission received. Files count: 75, POST fields: 74
+[08-Dec-2025 13:36:02 Asia/Kolkata] Step 4 Checkbox Debug:
+[08-Dec-2025 13:36:02 Asia/Kolkata]   registration_certificate: NOT SET
+[08-Dec-2025 13:36:02 Asia/Kolkata]   car_insurance: NOT SET
+[08-Dec-2025 13:36:02 Asia/Kolkata]   car_finance_noc: NOT SET
+[08-Dec-2025 13:36:02 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[08-Dec-2025 13:36:02 Asia/Kolkata]   bifuel_certification: NOT SET
+[08-Dec-2025 13:36:02 Asia/Kolkata] Total files processed: 15
+[08-Dec-2025 13:36:02 Asia/Kolkata] Generating PDF with 15 images
+[08-Dec-2025 13:36:23 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNew\pdfs\inspection_dsasfd_1765181183.pdf
+[08-Dec-2025 13:36:23 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_69366f495e4b03.44206279
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_69366f495e4b03.44206279
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/payment_proof_1765176327_636ba285.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_payment_proof_1765176327_636ba285.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/engine_noise_image_1765179214_01a65392.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_engine_noise_image_1765179214_01a65392.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/engine_oil_image_1765179218_1fee883c.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_engine_oil_image_1765179218_1fee883c.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/engine_oil_leakage_image_1765179371_46d81fbd.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_engine_oil_leakage_image_1765179371_46d81fbd.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/brake_oil_image_1765179357_96f5bc85.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_brake_oil_image_1765179357_96f5bc85.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/coolant_image_1765179363_3487dcab.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_coolant_image_1765179363_3487dcab.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/back_compression_image_1765179367_ceffe97e.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_back_compression_image_1765179367_ceffe97e.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/engine_condition_image_1765179381_9d7d16d3.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_engine_condition_image_1765179381_9d7d16d3.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/battery_image_1765179400_87883ba7.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_battery_image_1765179400_87883ba7.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/obd_scan_photo_1765180452_35f2c2e7.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_obd_scan_photo_1765180452_35f2c2e7.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/fuel_leaks_image_1765181045_a36ffbe0.jpg
+[08-Dec-2025 13:36:23 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_fuel_leaks_image_1765181045_a36ffbe0.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/ac_cool_1765181058_99e92137.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_ac_cool_1765181058_99e92137.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/ac_hot_1765181063_989e3caf.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_ac_hot_1765181063_989e3caf.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_2_1765181089_e3bc43ad.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_2_1765181089_e3bc43ad.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_4_1765181093_a3549dbe.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_4_1765181093_a3549dbe.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted audit log: D:\SEMESTER - VII\pdiNew\drafts\audit\draft_69366f495e4b03.44206279.log
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNew\uploads\drafts\draft_69366f495e4b03.44206279.json
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_69366f495e4b03.44206279 - Deleted 15 images, 1 files, Freed 14.21 MB
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Draft deleted - 15 images, 14.21 MB freed
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: thumb_ac_cool_1765180986_ebe9f985.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: thumb_ac_hot_1765180991_ef49ee8b.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted thumbnail: thumb_fuel_leaks_image_1765180948_5e4b5acd.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted remaining image: ac_cool_1765180986_ebe9f985.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted remaining image: ac_hot_1765180991_ef49ee8b.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] Cleanup: Deleted remaining image: fuel_leaks_image_1765180948_5e4b5acd.jpg
+[08-Dec-2025 13:36:24 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[08-Dec-2025 13:36:24 Asia/Kolkata] Draft deleted: Yes
+[08-Dec-2025 13:36:24 Asia/Kolkata] Images deleted: 18
+[08-Dec-2025 13:36:24 Asia/Kolkata] Compressed deleted: 0
+[08-Dec-2025 13:36:24 Asia/Kolkata] Uniform deleted: 0
+[08-Dec-2025 13:36:24 Asia/Kolkata] Thumbnails deleted: 3
+[08-Dec-2025 13:36:24 Asia/Kolkata] Total space freed: 15.51 MB
+[08-Dec-2025 13:36:24 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[08-Dec-2025 13:36:24 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[08-Dec-2025 13:36:35 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_dsasfd_1765181183.pdf
+[08-Dec-2025 13:36:35 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[08-Dec-2025 13:36:35 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===

@@ -41,7 +41,7 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 </div>
 
                 <div class="form-group">
-                    <label>Assigned Expert Name <span class="required">*</span></label>
+                    <label>Engineer Name <span class="required">*</span></label>
                     <input type="text" name="expert_name" required>
                 </div>
 
@@ -72,8 +72,19 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 </div>
 
                 <div class="form-group">
-                    <label>Inspection Address <span class="required">*</span></label>
-                    <textarea name="inspection_address" rows="3" placeholder="Provide complete address..." required></textarea>
+                    <label>Current Location <span class="required">*</span></label>
+                    <div class="location-help" style="background: #e3f2fd; padding: 10px; border-radius: 4px; margin-bottom: 10px; font-size: 13px; color: #1565c0;">
+                        📍 <strong>Tap "Get Location"</strong> and allow permission when your browser asks. Your coordinates will be filled automatically.
+                    </div>
+                    <div class="location-group">
+                        <div class="form-row">
+                            <input type="text" name="latitude" id="latitude" placeholder="Lat" readonly required>
+                            <input type="text" name="longitude" id="longitude" placeholder="Long" readonly required>
+                            <button type="button" class="btn-location" id="fetchLocation" title="Click to get your current location">📍 Get Location</button>
+                        </div>
+                        <textarea name="location_address" id="locationAddress" rows="2" placeholder="Location where the inspection is happening" readonly required></textarea>
+                        <div class="location-error" id="locationError" style="display: none;"></div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -91,16 +102,6 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 <div class="form-group">
                     <label>Car</label>
                     <input type="text" name="car">
-                </div>
-
-                <div class="form-group">
-                    <label>Lead Owner</label>
-                    <input type="text" name="lead_owner">
-                </div>
-
-                <div class="form-group">
-                    <label>Pending Amount</label>
-                    <input type="number" name="pending_amount" step="0.01">
                 </div>
             </div>
 
@@ -156,45 +157,11 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Amount Paid <span class="required">*</span></label>
-                        <input type="number" name="amount_paid" step="0.01" min="0">
-                    </div>
                 </div>
             </div>
 
-            <!-- STEP 3: EXPERT DETAILS -->
+            <!-- STEP 3: CAR IMAGES -->
             <div class="form-step" data-step="3">
-                <h2>⊙ Expert Details</h2>
-                
-                <div class="form-group">
-                    <label>Inspection 45 Minutes Delayed? <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="inspection_delayed" value="Yes" required> Yes
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="inspection_delayed" value="No"> No
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Your Photo with car number plate <span class="required">*</span></label>
-                    <div class="file-upload">
-                        <input type="file" name="car_photo" id="carPhoto" accept="image/*" required>
-                        <label for="carPhoto" class="file-label">
-                            <span class="camera-icon">📷</span>
-                            <span class="file-text">Choose Image</span>
-                        </label>
-                        <div class="file-preview" id="carPhotoPreview"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 4: CAR IMAGES -->
-            <div class="form-step" data-step="4">
                 <h2>⊙ Car Images</h2>
                 
                 <div class="form-group">
@@ -258,6 +225,425 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 </div>
             </div>
 
+            <!-- STEP 4: ENGINE -->
+            <div class="form-step" data-step="4">
+                <h2>⊙ Engine</h2>
+                
+                <div class="form-group">
+                    <label>Car Start <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="car_start" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="car_start" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Wiring <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="wiring" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="wiring" value="Original Wiring Changed"> Original Wiring Changed
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="wiring" value="Damaged"> Damaged
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Condition <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_condition" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_condition" value="Not Ok"> Not Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_condition" value="Unchecked"> Unchecked
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Condition Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="engine_condition_image" id="engineConditionImage" accept="image/*" required>
+                        <label for="engineConditionImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="engineConditionImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Noise <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_noise" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_noise" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="engine_noise_image_container" style="display: none;">
+                    <label>Engine Noise Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="engine_noise_image" id="engineNoiseImage" accept="image/*">
+                        <label for="engineNoiseImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="engineNoiseImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Oil <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="engine_oil_image_container" style="display: none;">
+                    <label>Engine Oil Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="engine_oil_image" id="engineOilImage" accept="image/*">
+                        <label for="engineOilImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="engineOilImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Oil Leakage <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_leakage" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_leakage" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="engine_oil_leakage_image_container" style="display: none;">
+                    <label>Engine Oil Leakage Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="engine_oil_leakage_image" id="engineOilLeakageImage" accept="image/*">
+                        <label for="engineOilLeakageImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="engineOilLeakageImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Oil Quality <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_quality" value="Low Level" required> Low Level
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_quality" value="Oil Change Needed"> Oil Change Needed
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_quality" value="Tar Found"> Tar Found
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_quality" value="Clean and Complete"> Clean and Complete
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Oil Cap <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_cap" value="Clean" required> Clean
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_oil_cap" value="Sludge Present"> Sludge Present
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Smoke from dipstick point <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="smoke_from_dipstick" value="Present" required> Present
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="smoke_from_dipstick" value="Not Present"> Not Present
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Back Compression <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="back_compression" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="back_compression" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="back_compression_image_container" style="display: none;">
+                    <label>Back Compression Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="back_compression_image" id="backCompressionImage" accept="image/*">
+                        <label for="backCompressionImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="backCompressionImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Mounting and Components <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_mounting_components" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_mounting_components" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>AC Compressor Mounting <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="ac_compressor_mounting" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="ac_compressor_mounting" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Vibration <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_vibration" value="Present" required> Present
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_vibration" value="Not Present"> Not Present
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Hoses <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="hoses" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="hoses" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Coolant <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="coolant" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="coolant" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="coolant_image_container" style="display: none;">
+                    <label>Coolant Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="coolant_image" id="coolantImage" accept="image/*">
+                        <label for="coolantImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="coolantImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Brake Oil <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="brake_oil" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="brake_oil" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="brake_oil_image_container" style="display: none;">
+                    <label>Brake Oil Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="brake_oil_image" id="brakeOilImage" accept="image/*">
+                        <label for="brakeOilImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="brakeOilImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Battery <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="battery" value="Damaged" required> Damaged
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="battery" value="Acid Leakage"> Acid Leakage
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="battery" value="Rusted/Dissolved Battery Tray"> Rusted/Dissolved Battery Tray
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="battery" value="Ok"> Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Battery Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="battery_image" id="batteryImage" accept="image/*" required>
+                        <label for="batteryImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="batteryImagePreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Transmission oil leakage <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="transmission_oil_leakage" value="Present" required> Present
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="transmission_oil_leakage" value="Not Present"> Not Present
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>AC Fan Belt <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="ac_fan_belt" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="ac_fan_belt" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Engine Fan Belt <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="engine_fan_belt" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="engine_fan_belt" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Radiator fan <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="radiator_fan" value="Working" required> Working
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="radiator_fan" value="Not Working"> Not Working
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Radiator Condition <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="radiator_condition" value="Ok" required> Ok
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="radiator_condition" value="Not Ok"> Not Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Exhaust Pipe <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="exhaust_pipe" value="Black Particles Present" required> Black Particles Present
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="exhaust_pipe" value="Ok"> Ok
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Exhaust Sound <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="exhaust_sound" value="Present" required> Present
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="exhaust_sound" value="Not Present"> Not Present
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Smoke Emission <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="smoke_emission" value="Present" required> Present
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="smoke_emission" value="Ok"> Ok
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <!-- STEP 5: CAR DETAILS -->
             <div class="form-step" data-step="5">
                 <h2>⊙ Car Details</h2>
@@ -278,27 +664,22 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 </div>
 
                 <div class="form-group">
-                    <label>Car Registered City</label>
-                    <input type="text" name="car_registered_city">
-                </div>
-
-                <div class="form-group">
                     <label>Fuel Type <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="fuel_type" value="Petrol" required> Petrol
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fuel_type[]" value="Petrol"> Petrol
                         </label>
-                        <label class="radio-label">
-                            <input type="radio" name="fuel_type" value="Diesel"> Diesel
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fuel_type[]" value="Diesel"> Diesel
                         </label>
-                        <label class="radio-label">
-                            <input type="radio" name="fuel_type" value="Electric"> Electric
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fuel_type[]" value="Electric"> Electric
                         </label>
-                        <label class="radio-label">
-                            <input type="radio" name="fuel_type" value="Hybrid"> Hybrid
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fuel_type[]" value="Hybrid"> Hybrid
                         </label>
-                        <label class="radio-label">
-                            <input type="radio" name="fuel_type" value="CNG"> CNG
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fuel_type[]" value="CNG"> CNG
                         </label>
                     </div>
                 </div>
@@ -386,16 +767,10 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                     'driver_side_view_mirror_housing' => ['label' => 'Driver - Side View Mirror Housing', 'options' => ['Not Ok', 'Ok', 'Scratches']],
                     'driver_side_view_mirror_glass' => ['label' => 'Driver - Side View Mirror Glass', 'options' => ['Scratches', 'Damaged', 'Ok', 'Loose']],
                     'driver_indicator_front' => ['label' => 'Driver - Indicator Front', 'options' => ['Ok', 'Scratches', 'Damaged']],
-                    'driver_front_wheel_arch' => ['label' => 'Driver - Front Wheel Arch/ Fender Lining', 'options' => ['Damaged', 'Ok', 'Rusted']],
-                    'driver_front_mud_flap' => ['label' => 'Driver - Front Mud Flap', 'options' => ['Ok', 'Not Available', 'Damaged']],
-                    'driver_front_cladding' => ['label' => 'Driver - Front Cladding', 'options' => ['Not Available', 'Ok', 'Damaged', 'Scratches']],
                     'driver_roof_rail' => ['label' => 'Driver - Roof Rail', 'options' => ['Ok', 'Not Available', 'Damaged']],
                     'driver_door_sill' => ['label' => 'Driver - Door Sill', 'options' => ['Repainted', 'Major Scratches', 'Minor Scratches', "Major Dent's", 'Ok', 'Rusted', "Minor Dent's"]],
                     'driver_back_door' => ['label' => 'Driver -Back Door', 'options' => ["Minor Dent's", 'Repainted', 'Replaced', "Major Dent's", 'Major Scratches', 'Rusted', 'Ok', 'Panel Gaps', 'Not Opening Comfortable', 'Minor Scratches']],
                     'driver_back_door_window' => ['label' => 'Driver - Back Door Window', 'options' => ['Ok', 'Scratches', 'Damaged', 'Loose']],
-                    'driver_rear_cladding' => ['label' => 'Driver - Rear Cladding', 'options' => ['Damaged', 'Ok', 'Scratches', 'Not Applicable']],
-                    'driver_rear_wheel_arch' => ['label' => 'Driver - Rear Wheel Arch / Fender Lining', 'options' => ['Damaged', 'Ok', 'Rusted']],
-                    'driver_back_mud_flap' => ['label' => 'Driver - Back Mud Flap', 'options' => ['Not Available', 'Damaged', 'Ok']],
                     'driver_back_quarter_panel' => ['label' => 'Driver - Back Quarter Panel', 'options' => ['Ok', 'Repainted', "Minor Dent's", 'Major Scratches', "Major Dent's", 'Panel Gaps', 'Minor Scratches', 'Rusted']],
                     'driver_back_indicated' => ['label' => 'Driver - Back Indicated', 'options' => ['Ok', 'Scratches', 'Damaged']],
                     'passenger_back_indicated' => ['label' => 'Passenger - Back Indicated', 'options' => ['Damaged', 'Ok', 'Scratches']],
@@ -479,10 +854,10 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="obd_scan_photo_container" style="display: none;">
                     <label>OBD Scan Photo <span class="required">*</span></label>
                     <div class="file-upload">
-                        <input type="file" name="obd_scan_photo" id="obdScanPhoto" accept="image/*" required>
+                        <input type="file" name="obd_scan_photo" id="obdScanPhoto" accept="image/*">
                         <label for="obdScanPhoto" class="file-label">
                             <span class="camera-icon">📷</span>
                             <span class="file-text">Choose Image</span>
@@ -983,11 +1358,6 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Check All Buttons</label>
-                    <small class="helper-text">Mention if Anything not working</small>
-                    <input type="text" name="check_all_buttons" placeholder="Mention if anything not working...">
-                </div>
             </div>
 
             <!-- STEP 9: AIR CONDITIONING -->
@@ -1007,24 +1377,26 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 </div>
 
                 <div class="form-group">
-                    <label>AC Cool Temperature</label>
-                    <input type="text" name="ac_cool_temperature" placeholder="Enter cool temperature...">
-                </div>
-
-                <div class="form-group">
-                    <label>AC Hot Temperature</label>
-                    <input type="text" name="ac_hot_temperature" placeholder="Enter hot temperature...">
-                </div>
-
-                <div class="form-group">
-                    <label>Air Condition Image at Fan Max Speed</label>
+                    <label>AC Cool <span class="required">*</span></label>
                     <div class="file-upload">
-                        <input type="file" name="ac_image" id="acImage" accept="image/*">
-                        <label for="acImage" class="file-label">
+                        <input type="file" name="ac_cool" id="acCool" accept="image/*" required>
+                        <label for="acCool" class="file-label">
                             <span class="camera-icon">📷</span>
                             <span class="file-text">Choose Image</span>
                         </label>
-                        <div class="file-preview" id="acImagePreview"></div>
+                        <div class="file-preview" id="acCoolPreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>AC Hot <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="ac_hot" id="acHot" accept="image/*" required>
+                        <label for="acHot" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="acHotPreview"></div>
                     </div>
                 </div>
 
@@ -1377,6 +1749,18 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                     </div>
                 </div>
 
+                <div class="form-group" id="fuel_leaks_image_container" style="display: none;">
+                    <label>Fuel Leaks Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="fuel_leaks_image" id="fuelLeaksImage" accept="image/*">
+                        <label for="fuelLeaksImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="fuelLeaksImagePreview"></div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label>Underbody Left <span class="required">*</span></label>
                     <div class="file-upload">
@@ -1466,14 +1850,62 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                 </div>
 
                 <div class="form-group">
-                    <label>Photo of Issues</label>
+                    <label>Issue Photo 1</label>
                     <div class="file-upload">
-                        <input type="file" name="photo_of_issues" id="photoOfIssues" accept="image/*">
-                        <label for="photoOfIssues" class="file-label">
+                        <input type="file" name="issue_photo_1" id="issuePhoto1" accept="image/*">
+                        <label for="issuePhoto1" class="file-label">
                             <span class="camera-icon">📷</span>
                             <span class="file-text">Choose Image</span>
                         </label>
-                        <div class="file-preview" id="photoOfIssuesPreview"></div>
+                        <div class="file-preview" id="issuePhoto1Preview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Issue Photo 2</label>
+                    <div class="file-upload">
+                        <input type="file" name="issue_photo_2" id="issuePhoto2" accept="image/*">
+                        <label for="issuePhoto2" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="issuePhoto2Preview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Issue Photo 3</label>
+                    <div class="file-upload">
+                        <input type="file" name="issue_photo_3" id="issuePhoto3" accept="image/*">
+                        <label for="issuePhoto3" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="issuePhoto3Preview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Issue Photo 4</label>
+                    <div class="file-upload">
+                        <input type="file" name="issue_photo_4" id="issuePhoto4" accept="image/*">
+                        <label for="issuePhoto4" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="issuePhoto4Preview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Issue Photo 5</label>
+                    <div class="file-upload">
+                        <input type="file" name="issue_photo_5" id="issuePhoto5" accept="image/*">
+                        <label for="issuePhoto5" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Choose Image</span>
+                        </label>
+                        <div class="file-preview" id="issuePhoto5Preview"></div>
                     </div>
                 </div>
             </div>

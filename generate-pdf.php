@@ -84,7 +84,7 @@ function generateCompleteHTML($data) {
     
     // Mandatory fields
     $html .= generateField('Booking ID', $data['booking_id'] ?? '', true);
-    $html .= generateField('Assigned Expert Name', $data['expert_name'] ?? '', true);
+    $html .= generateField('Engineer Name', $data['expert_name'] ?? '', true);
     $html .= generateField('Inspection Expert City', $data['expert_city'] ?? '', true);
     $html .= generateField('Customer Name', $data['customer_name'] ?? '', true);
     
@@ -94,13 +94,16 @@ function generateCompleteHTML($data) {
     // Mandatory fields continued
     $html .= generateField('Date', $data['inspection_date'] ?? '', true);
     $html .= generateField('Time', $data['inspection_time'] ?? '', true);
-    $html .= generateField('Inspection Address', $data['inspection_address'] ?? '', true);
+    
+    // Location fields
+    $html .= generateField('Latitude', $data['latitude'] ?? '', true);
+    $html .= generateField('Longitude', $data['longitude'] ?? '', true);
+    $html .= generateField('Location Address', $data['location_address'] ?? '', true);
+    
     $html .= generateField('OBD Scanning', $data['obd_scanning'] ?? '', true);
     
     // Optional fields
     $html .= generateField('Car', $data['car'] ?? '', false);
-    $html .= generateField('Lead Owner', $data['lead_owner'] ?? '', false);
-    $html .= generateField('Pending Amount', $data['pending_amount'] ?? '', false);
     
     // ========================================================================
     // STEP 2: Payment Taking
@@ -112,7 +115,6 @@ function generateCompleteHTML($data) {
     // Show payment details if payment was taken
     if (($data['payment_taken'] ?? '') === 'Yes') {
         $html .= generateField('Payment Type', $data['payment_type'] ?? '', true);
-        $html .= generateField('Amount Paid', $data['amount_paid'] ?? '', true);
         
         // Show payment proof image if online payment
         if (($data['payment_type'] ?? '') === 'Online') {
@@ -123,22 +125,9 @@ function generateCompleteHTML($data) {
     }
     
     // ========================================================================
-    // STEP 3: Expert Details
+    // STEP 3: Car Images
     // ========================================================================
-    $html .= generateStepHeader(3, 'Expert Details');
-    
-    // Mandatory fields
-    $html .= generateField('Inspection 45 Minutes Delayed?', $data['inspection_delayed'] ?? '', true);
-    
-    // Image in grid
-    $images = [];
-    $images[] = generateImage('Your Photo with car number plate', $data['car_photo_path'] ?? '', true);
-    $html .= generateImageGrid($images);
-    
-    // ========================================================================
-    // STEP 4: Car Images
-    // ========================================================================
-    $html .= generateStepHeader(4, 'Car Images');
+    $html .= generateStepHeader(3, 'Car Images');
     
     // All car images in grid
     $images = [];
@@ -150,6 +139,88 @@ function generateCompleteHTML($data) {
     $html .= generateImageGrid($images);
     
     // ========================================================================
+    // STEP 4: Engine
+    // ========================================================================
+    $html .= generateStepHeader(4, 'Engine');
+    
+    // All Engine fields
+    $html .= generateField('Car Start', $data['car_start'] ?? '', true);
+    $html .= generateField('Wiring', $data['wiring'] ?? '', true);
+    $html .= generateField('Engine Condition', $data['engine_condition'] ?? '', true);
+    
+    // Engine Condition Image (always required)
+    $images = [];
+    $images[] = generateImage('Engine Condition Image', $data['engine_condition_image_path'] ?? '', true);
+    $html .= generateImageGrid($images);
+    
+    $html .= generateField('Engine Noise', $data['engine_noise'] ?? '', true);
+    if (!empty($data['engine_noise_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Engine Noise Image', $data['engine_noise_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
+    $html .= generateField('Engine Oil', $data['engine_oil'] ?? '', true);
+    if (!empty($data['engine_oil_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Engine Oil Image', $data['engine_oil_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
+    $html .= generateField('Engine Oil Leakage', $data['engine_oil_leakage'] ?? '', true);
+    if (!empty($data['engine_oil_leakage_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Engine Oil Leakage Image', $data['engine_oil_leakage_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
+    $html .= generateField('Engine Oil Quality', $data['engine_oil_quality'] ?? '', true);
+    $html .= generateField('Engine Oil Cap', $data['engine_oil_cap'] ?? '', true);
+    $html .= generateField('Smoke from dipstick point', $data['smoke_from_dipstick'] ?? '', true);
+    
+    $html .= generateField('Back Compression', $data['back_compression'] ?? '', true);
+    if (!empty($data['back_compression_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Back Compression Image', $data['back_compression_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
+    $html .= generateField('Engine Mounting and Components', $data['engine_mounting_components'] ?? '', true);
+    $html .= generateField('AC Compressor Mounting', $data['ac_compressor_mounting'] ?? '', true);
+    $html .= generateField('Engine Vibration', $data['engine_vibration'] ?? '', true);
+    $html .= generateField('Hoses', $data['hoses'] ?? '', true);
+    
+    $html .= generateField('Coolant', $data['coolant'] ?? '', true);
+    if (!empty($data['coolant_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Coolant Image', $data['coolant_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
+    $html .= generateField('Brake Oil', $data['brake_oil'] ?? '', true);
+    if (!empty($data['brake_oil_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Brake Oil Image', $data['brake_oil_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
+    $html .= generateField('Battery', $data['battery'] ?? '', true);
+    
+    // Battery Image (always required)
+    $images = [];
+    $images[] = generateImage('Battery Image', $data['battery_image_path'] ?? '', true);
+    $html .= generateImageGrid($images);
+    
+    $html .= generateField('Transmission oil leakage', $data['transmission_oil_leakage'] ?? '', true);
+    $html .= generateField('AC Fan Belt', $data['ac_fan_belt'] ?? '', true);
+    $html .= generateField('Engine Fan Belt', $data['engine_fan_belt'] ?? '', true);
+    $html .= generateField('Radiator fan', $data['radiator_fan'] ?? '', true);
+    $html .= generateField('Radiator Condition', $data['radiator_condition'] ?? '', true);
+    $html .= generateField('Exhaust Pipe', $data['exhaust_pipe'] ?? '', true);
+    $html .= generateField('Exhaust Sound', $data['exhaust_sound'] ?? '', true);
+    $html .= generateField('Smoke Emission', $data['smoke_emission'] ?? '', true);
+    
+    // ========================================================================
     // STEP 5: Car Details
     // ========================================================================
     $html .= generateStepHeader(5, 'Car Details');
@@ -159,16 +230,8 @@ function generateCompleteHTML($data) {
     $html .= generateField('Car Variant', $data['car_variant'] ?? '', true);
     $html .= generateField('Car Registered State', $data['car_registered_state'] ?? '', true);
     
-    // Optional field
-    $html .= generateField('Car Registered City', $data['car_registered_city'] ?? '', false);
-    
-    // Mandatory fields continued - fuel_type is now single value, not array
-    $fuelType = $data['fuel_type'] ?? '';
-    // Handle both old format (array) and new format (string) for backward compatibility
-    if (is_array($fuelType)) {
-        $fuelType = implode(', ', $fuelType);
-    }
-    $html .= generateField('Fuel Type', $fuelType, true);
+    // Fuel Type - handle as array (checkboxes)
+    $html .= generateField('Fuel Type', formatArray($data['fuel_type'] ?? []), true);
     
     $html .= generateField('Engine Capacity (in CC)', $data['engine_capacity'] ?? '', true);
     $html .= generateField('Transmission Type', $data['transmission'] ?? '', true);
@@ -189,12 +252,11 @@ function generateCompleteHTML($data) {
     // ========================================================================
     $html .= generateStepHeader(6, 'Exterior Body');
     
-    // Define all 52 exterior body fields
+    // Define all 46 exterior body fields (removed 6 fields)
     $exteriorFields = [
         'driver_front_door', 'driver_front_fender', 'driver_front_door_window', 'driver_side_view_mirror_housing',
-        'driver_side_view_mirror_glass', 'driver_indicator_front', 'driver_front_wheel_arch', 'driver_front_mud_flap',
-        'driver_front_cladding', 'driver_roof_rail', 'driver_door_sill', 'driver_back_door', 'driver_back_door_window',
-        'driver_rear_cladding', 'driver_rear_wheel_arch', 'driver_back_mud_flap', 'driver_back_quarter_panel',
+        'driver_side_view_mirror_glass', 'driver_indicator_front', 'driver_roof_rail', 'driver_door_sill', 
+        'driver_back_door', 'driver_back_door_window', 'driver_back_quarter_panel',
         'driver_back_indicated', 'passenger_back_indicated', 'rear_windshield', 'connected_taillights',
         'driver_taillights', 'passenger_taillights', 'rear_number_plate', 'rear_bumper', 'boot_space_door',
         'passenger_back_door', 'passenger_back_door_window', 'fuel_filter_flap', 'passenger_door_sill',
@@ -212,16 +274,10 @@ function generateCompleteHTML($data) {
         'driver_side_view_mirror_housing' => 'Driver - Side View Mirror Housing',
         'driver_side_view_mirror_glass' => 'Driver - Side View Mirror Glass',
         'driver_indicator_front' => 'Driver - Indicator Front',
-        'driver_front_wheel_arch' => 'Driver - Front Wheel Arch/ Fender Lining',
-        'driver_front_mud_flap' => 'Driver - Front Mud Flap',
-        'driver_front_cladding' => 'Driver - Front Cladding',
         'driver_roof_rail' => 'Driver - Roof Rail',
         'driver_door_sill' => 'Driver - Door Sill',
         'driver_back_door' => 'Driver -Back Door',
         'driver_back_door_window' => 'Driver - Back Door Window',
-        'driver_rear_cladding' => 'Driver - Rear Cladding',
-        'driver_rear_wheel_arch' => 'Driver - Rear Wheel Arch / Fender Lining',
-        'driver_back_mud_flap' => 'Driver - Back Mud Flap',
         'driver_back_quarter_panel' => 'Driver - Back Quarter Panel',
         'driver_back_indicated' => 'Driver - Back Indicated',
         'passenger_back_indicated' => 'Passenger - Back Indicated',
@@ -275,10 +331,12 @@ function generateCompleteHTML($data) {
     
     $html .= generateField('Any Fault Code Present', $data['fault_code_present'] ?? '', true);
     
-    // OBD Scan Photo
-    $images = [];
-    $images[] = generateImage('OBD Scan Photo', $data['obd_scan_photo_path'] ?? '', true);
-    $html .= generateImageGrid($images);
+    // OBD Scan Photo (only if NOT "Not Checked")
+    if (($data['fault_code_present'] ?? '') !== 'Not Checked' && !empty($data['obd_scan_photo_path'])) {
+        $images = [];
+        $images[] = generateImage('OBD Scan Photo', $data['obd_scan_photo_path'], true);
+        $html .= generateImageGrid($images);
+    }
     
     // ========================================================================
     // STEP 8: Electrical and Interior
@@ -322,7 +380,6 @@ function generateCompleteHTML($data) {
     $html .= generateField('Dashboard Condition', $data['dashboard_condition'] ?? '', true);
     $html .= generateField('Window Passenger Side', $data['window_passenger_side'] ?? '', true);
     $html .= generateField('Seat Adjustment Passenger Rear Side', $data['seat_adjustment_passenger_rear'] ?? '', true);
-    $html .= generateField('Check All Buttons', $data['check_all_buttons'] ?? '', false);
     
     // ========================================================================
     // STEP 9: Air Conditioning
@@ -330,20 +387,18 @@ function generateCompleteHTML($data) {
     $html .= generateStepHeader(9, 'Air Conditioning');
     
     $html .= generateField('Air Conditioning Turning On', $data['ac_turning_on'] ?? '', true);
-    $html .= generateField('AC Cool Temperature', $data['ac_cool_temperature'] ?? '', false);
-    $html .= generateField('AC Hot Temperature', $data['ac_hot_temperature'] ?? '', false);
+    
+    // AC Cool and AC Hot Images (always required)
+    $images = [];
+    $images[] = generateImage('AC Cool', $data['ac_cool_path'] ?? '', true);
+    $images[] = generateImage('AC Hot', $data['ac_hot_path'] ?? '', true);
+    $html .= generateImageGrid($images);
+    
     $html .= generateField('Air Condition Direction Mode Working', $data['ac_direction_mode'] ?? '', true);
     $html .= generateField('De Fogger Front Vent Working', $data['defogger_front_vent'] ?? '', true);
     $html .= generateField('De Fogger rear Vent Working', $data['defogger_rear_vent'] ?? '', true);
     $html .= generateField('Air Conditioning All Vents', $data['ac_all_vents'] ?? '', true);
     $html .= generateField('AC Abnormal Vibration', $data['ac_abnormal_vibration'] ?? '', true);
-    
-    // AC Image (if uploaded)
-    if (!empty($data['ac_image_path'])) {
-        $images = [];
-        $images[] = generateImage('Air Condition Image at Fan Max Speed', $data['ac_image_path'] ?? '', false);
-        $html .= generateImageGrid($images);
-    }
     
     // ========================================================================
     // STEP 10: Tyres
@@ -397,6 +452,13 @@ function generateCompleteHTML($data) {
     
     $html .= generateField('Any Fuel Leaks under Body', $data['fuel_leaks_under_body'] ?? '', true);
     
+    // Fuel Leaks Image (only if "Present" selected)
+    if (($data['fuel_leaks_under_body'] ?? '') === 'Present' && !empty($data['fuel_leaks_image_path'])) {
+        $images = [];
+        $images[] = generateImage('Fuel Leaks Image', $data['fuel_leaks_image_path'], false);
+        $html .= generateImageGrid($images);
+    }
+    
     // Underbody Images in grid
     $images = [];
     $images[] = generateImage('Underbody Left', $data['underbody_left_path'] ?? '', true);
@@ -426,11 +488,18 @@ function generateCompleteHTML($data) {
     
     $html .= generateField('Any Issues Found in Car', $data['issues_found_in_car'] ?? '', true);
     
-    // Photo of Issues (if present)
-    if (!empty($data['photo_of_issues_path'])) {
-        $images = [];
-        $images[] = generateImage('Photo of Issues', $data['photo_of_issues_path'] ?? '', false);
-        $html .= generateImageGrid($images);
+    // Issue Photos (show only uploaded ones, 0-5 images)
+    $issueImages = [];
+    for ($i = 1; $i <= 5; $i++) {
+        $fieldName = 'issue_photo_' . $i . '_path';
+        if (!empty($data[$fieldName])) {
+            $issueImages[] = generateImage('Issue Photo ' . $i, $data[$fieldName], false);
+        }
+    }
+    
+    // Only show image grid if at least one issue photo was uploaded
+    if (!empty($issueImages)) {
+        $html .= generateImageGrid($issueImages);
     }
     
     $html .= generateFooter();
@@ -569,7 +638,7 @@ function generateHeader($data) {
                 <div style="color: #ffffff; font-family: Arial, Helvetica, sans-serif; line-height: 1.8;">
                     <div style="font-size: 16pt; font-weight: bold; margin-bottom: 10px; letter-spacing: 0.5px;">PDI (New Car Inspection) Report</div>
                     <div style="font-size: 11pt; margin-bottom: 5px;">ID: ' . $booking_id . '</div>
-                    <div style="font-size: 11pt; margin-bottom: 5px;">Assigned Expert Name: ' . $expert_name . '</div>
+                    <div style="font-size: 11pt; margin-bottom: 5px;">Engineer Name: ' . $expert_name . '</div>
                     <div style="font-size: 11pt;">Customer Name: ' . $customer_name . '</div>
                 </div>
             </td>
@@ -719,7 +788,12 @@ function generateImageGrid($images) {
 function generateFooter() {
     return '<div class="footer">
         <p><strong>Car Inspection Expert System</strong></p>
-        <p>This report contains complete inspection data from all 13 steps.</p>
+        <div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 6px; padding: 15px; margin: 15px 0;">
+            <p style="font-weight: bold; font-size: 13.1px; color: #e65100; margin: 0; line-height: 1.6; text-align: left;">
+                ⚠️ <span style="text-decoration: underline;">IMPORTANT NOTE:</span><br>
+                While inspecting the vehicle, our boy will be responsible as long as he is at the inspection site, after that he will not be responsible even if anything happens to the vehicle.
+            </p>
+        </div>
         <p>Report generated on ' . date('Y-m-d H:i:s') . '</p>
     </div>';
 }

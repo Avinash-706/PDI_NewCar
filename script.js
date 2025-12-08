@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitForm(e);
     });
     
-    // File upload preview
-    document.getElementById('carPhoto').addEventListener('change', previewImage);
+    // File upload preview (removed - Step 3 deleted)
     
     // Setup camera capture for all file inputs
     setupCameraCapture();
@@ -52,6 +51,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup tool kit conditional logic
     setupToolKitConditional();
+    
+    // Setup conditional image fields for Engine step
+    setupEngineConditionalImages();
+    
+    // Setup conditional OBD Scan Photo
+    setupOBDScanPhotoConditional();
+    
+    // Setup conditional Fuel Leaks Image
+    setupFuelLeaksImageConditional();
     
     // Auto-save on input change
     const formInputs = document.querySelectorAll('input, textarea, select');
@@ -285,7 +293,7 @@ function fetchLocation() {
     locationBtn.textContent = '⏳';
     locationBtn.disabled = true;
     
-    // Immediately request location - this triggers the native browser permission popup
+    // Request location with improved settings
     navigator.geolocation.getCurrentPosition(
         // SUCCESS callback
         function(position) {
@@ -293,20 +301,37 @@ function fetchLocation() {
             const lon = position.coords.longitude;
             const accuracy = position.coords.accuracy;
             
+            console.log('Location obtained:', lat, lon, 'Accuracy:', accuracy);
+            
             // Auto-fill latitude and longitude
             document.getElementById('latitude').value = lat.toFixed(6);
             document.getElementById('longitude').value = lon.toFixed(6);
             
-            // Show success message
-            showLocationSuccess(`✅ Location captured (±${Math.round(accuracy)}m accuracy)`, errorDiv);
+            // Show success in button
+            locationBtn.textContent = '✓';
+            locationBtn.style.background = '#4CAF50';
             
-            // Fetch address via reverse geocoding
+            // Fetch address via reverse geocoding with timeout
+            const geocodeTimeout = setTimeout(() => {
+                // If geocoding takes too long, just use coordinates
+                document.getElementById('locationAddress').value = `Lat: ${lat.toFixed(6)}, Lon: ${lon.toFixed(6)}`;
+                locationBtn.textContent = '📍';
+                locationBtn.style.background = '';
+                locationBtn.disabled = false;
+            }, 8000);
+            
             fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`, {
                 headers: { 'User-Agent': 'CarInspectionApp/1.0' }
             })
-            .then(response => response.json())
+            .then(response => {
+                clearTimeout(geocodeTimeout);
+                return response.json();
+            })
             .then(data => {
-                document.getElementById('locationAddress').value = data.display_name || 'Address not found';
+                const address = data.display_name || `Lat: ${lat.toFixed(6)}, Lon: ${lon.toFixed(6)}`;
+                document.getElementById('locationAddress').value = address;
+                console.log('Address resolved:', address);
+                
                 locationBtn.textContent = '✓';
                 locationBtn.style.background = '#4CAF50';
                 setTimeout(() => {
@@ -316,38 +341,64 @@ function fetchLocation() {
                 }, 2000);
             })
             .catch(error => {
-                document.getElementById('locationAddress').value = `Lat: ${lat}, Lon: ${lon}`;
+                clearTimeout(geocodeTimeout);
+                console.error('Geocoding error:', error);
+                // Fallback to coordinates
+                document.getElementById('locationAddress').value = `Lat: ${lat.toFixed(6)}, Lon: ${lon.toFixed(6)}`;
                 locationBtn.textContent = '📍';
+                locationBtn.style.background = '';
                 locationBtn.disabled = false;
             });
         },
-        // ERROR callback - Force permission popup handling
+        // ERROR callback
         function(error) {
             locationBtn.textContent = '📍';
             locationBtn.disabled = false;
             
+            console.error('Geolocation error:', error.code, error.message);
+            
             switch(error.code) {
                 case error.PERMISSION_DENIED:
-                    alert("Please enable Location Permission for this site.\n\n" +
-                          "📱 Android: Tap the lock icon → Permissions → Location → Allow\n" +
-                          "🍎 iOS: Tap 'AA' → Website Settings → Location → Allow");
-                    showPermissionDeniedPopup();
+                    errorDiv.innerHTML = '<strong>⚠️ Location Permission Denied</strong><br>' +
+                                        '📱 <strong>Mobile:</strong> Tap the lock/info icon in address bar → Permissions → Location → Allow<br>' +
+                                        '💻 <strong>Desktop:</strong> Click the lock icon → Site settings → Location → Allow';
+                    errorDiv.style.display = 'block';
+                    errorDiv.style.background = '#fff3cd';
+                    errorDiv.style.padding = '10px';
+                    errorDiv.style.borderRadius = '4px';
+                    errorDiv.style.color = '#856404';
+                    errorDiv.style.fontSize = '13px';
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    alert("Location unavailable. Please turn ON GPS and ensure Location Services are enabled.");
+                    errorDiv.innerHTML = '<strong>⚠️ Location Unavailable</strong><br>Please ensure GPS/Location Services are enabled on your device.';
+                    errorDiv.style.display = 'block';
+                    errorDiv.style.background = '#fff3cd';
+                    errorDiv.style.padding = '10px';
+                    errorDiv.style.borderRadius = '4px';
+                    errorDiv.style.color = '#856404';
                     break;
                 case error.TIMEOUT:
-                    alert("Location request timed out. Please check your internet connection and try again.");
+                    errorDiv.innerHTML = '<strong>⚠️ Location Timeout</strong><br>GPS is taking too long. Please try again or check if Location Services are enabled.';
+                    errorDiv.style.display = 'block';
+                    errorDiv.style.background = '#fff3cd';
+                    errorDiv.style.padding = '10px';
+                    errorDiv.style.borderRadius = '4px';
+                    errorDiv.style.color = '#856404';
                     break;
                 default:
-                    alert("Unable to fetch location. Please try again.");
+                    errorDiv.innerHTML = '<strong>⚠️ Location Error</strong><br>Unable to get location. Please try again.';
+                    errorDiv.style.display = 'block';
+                    errorDiv.style.background = '#ffebee';
+                    errorDiv.style.padding = '10px';
+                    errorDiv.style.borderRadius = '4px';
+                    errorDiv.style.color = '#c62828';
             }
         },
-        // OPTIONS - High accuracy, no cache
+        // OPTIONS - Optimized for reliability
         {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
+            enableHighAccuracy: false,  // Changed to false for faster response
+            timeout: 30000,              // Increased to 30 seconds
+            maximumAge: 60000            // Allow cached position up to 1 minute
         }
     );
 }
@@ -527,7 +578,6 @@ function setupPaymentToggle() {
     const paymentCash = document.getElementById('payment_cash');
     const onlinePaymentSection = document.getElementById('online_payment_section');
     const paymentProof = document.getElementById('paymentProof');
-    const amountPaidInput = document.querySelector('input[name="amount_paid"]');
     const paymentTypeInputs = document.querySelectorAll('input[name="payment_type"]');
     
     if (!paymentYes || !paymentNo || !paymentDetailsSection) return;
@@ -536,18 +586,12 @@ function setupPaymentToggle() {
     function togglePaymentDetails() {
         if (paymentYes.checked) {
             paymentDetailsSection.style.display = 'block';
-            // Make payment type and amount required when Yes is selected
+            // Make payment type required when Yes is selected
             paymentTypeInputs.forEach(input => input.setAttribute('required', 'required'));
-            if (amountPaidInput) {
-                amountPaidInput.setAttribute('required', 'required');
-            }
         } else {
             paymentDetailsSection.style.display = 'none';
             // Remove required when No is selected
             paymentTypeInputs.forEach(input => input.removeAttribute('required'));
-            if (amountPaidInput) {
-                amountPaidInput.removeAttribute('required');
-            }
             if (paymentProof) {
                 paymentProof.removeAttribute('required');
             }
@@ -916,6 +960,22 @@ function loadDraft() {
                     }
                 } else if (paymentNo && paymentNo.checked && paymentDetailsSection) {
                     paymentDetailsSection.style.display = 'none';
+                }
+                
+                // Trigger conditional image fields for Engine step
+                // This ensures image containers show/hide correctly based on saved radio values
+                if (typeof setupEngineConditionalImages === 'function') {
+                    setupEngineConditionalImages();
+                }
+                
+                // Trigger conditional OBD Scan Photo
+                if (typeof setupOBDScanPhotoConditional === 'function') {
+                    setupOBDScanPhotoConditional();
+                }
+                
+                // Trigger conditional Fuel Leaks Image
+                if (typeof setupFuelLeaksImageConditional === 'function') {
+                    setupFuelLeaksImageConditional();
                 }
                 
                 // Trigger OK checkbox logic for Step 6 (Exterior Body)
@@ -1803,4 +1863,120 @@ function setupToolKitConditional() {
     
     // Initial check
     toggleToolKitImage();
+}
+
+// Setup conditional image fields for Engine step fields
+function setupEngineConditionalImages() {
+    const conditionalFields = [
+        { name: 'engine_noise', containerId: 'engine_noise_image_container', inputId: 'engineNoiseImage' },
+        { name: 'engine_oil', containerId: 'engine_oil_image_container', inputId: 'engineOilImage' },
+        { name: 'engine_oil_leakage', containerId: 'engine_oil_leakage_image_container', inputId: 'engineOilLeakageImage' },
+        { name: 'back_compression', containerId: 'back_compression_image_container', inputId: 'backCompressionImage' },
+        { name: 'coolant', containerId: 'coolant_image_container', inputId: 'coolantImage' },
+        { name: 'brake_oil', containerId: 'brake_oil_image_container', inputId: 'brakeOilImage' }
+    ];
+    
+    conditionalFields.forEach(field => {
+        const radios = document.querySelectorAll(`input[name="${field.name}"]`);
+        const container = document.getElementById(field.containerId);
+        const imageInput = document.getElementById(field.inputId);
+        
+        if (!radios.length || !container) return;
+        
+        function toggleImageField() {
+            const notOkRadio = Array.from(radios).find(r => r.value === 'Not Ok' && r.checked);
+            
+            if (notOkRadio) {
+                container.style.display = 'block';
+                if (imageInput && !imageInput.dataset.savedFile) {
+                    imageInput.setAttribute('required', 'required');
+                }
+            } else {
+                container.style.display = 'none';
+                if (imageInput) {
+                    imageInput.removeAttribute('required');
+                }
+            }
+        }
+        
+        radios.forEach(radio => {
+            radio.addEventListener('change', toggleImageField);
+        });
+        
+        // Initial check
+        toggleImageField();
+    });
+}
+
+
+// Setup conditional OBD Scan Photo field
+function setupOBDScanPhotoConditional() {
+    const faultCodeRadios = document.querySelectorAll('input[name="fault_code_present"]');
+    const obdPhotoContainer = document.getElementById('obd_scan_photo_container');
+    const obdPhotoInput = document.getElementById('obdScanPhoto');
+    
+    if (!faultCodeRadios.length || !obdPhotoContainer) return;
+    
+    function toggleOBDPhoto() {
+        const notCheckedRadio = Array.from(faultCodeRadios).find(r => r.value === 'Not Checked' && r.checked);
+        
+        if (notCheckedRadio) {
+            // Hide and remove required if "Not Checked" is selected
+            obdPhotoContainer.style.display = 'none';
+            if (obdPhotoInput) {
+                obdPhotoInput.removeAttribute('required');
+            }
+        } else {
+            // Show and make required for any other selection
+            const anySelected = Array.from(faultCodeRadios).some(r => r.checked);
+            if (anySelected) {
+                obdPhotoContainer.style.display = 'block';
+                if (obdPhotoInput && !obdPhotoInput.dataset.savedFile) {
+                    obdPhotoInput.setAttribute('required', 'required');
+                }
+            }
+        }
+    }
+    
+    faultCodeRadios.forEach(radio => {
+        radio.addEventListener('change', toggleOBDPhoto);
+    });
+    
+    // Initial check
+    toggleOBDPhoto();
+}
+
+
+// Setup conditional Fuel Leaks Image field
+function setupFuelLeaksImageConditional() {
+    const fuelLeaksRadios = document.querySelectorAll('input[name="fuel_leaks_under_body"]');
+    const fuelLeaksImageContainer = document.getElementById('fuel_leaks_image_container');
+    const fuelLeaksImageInput = document.getElementById('fuelLeaksImage');
+    
+    if (!fuelLeaksRadios.length || !fuelLeaksImageContainer) return;
+    
+    function toggleFuelLeaksImage() {
+        const presentRadio = Array.from(fuelLeaksRadios).find(r => r.value === 'Present' && r.checked);
+        
+        if (presentRadio) {
+            // Show and make required if "Present" is selected
+            fuelLeaksImageContainer.style.display = 'block';
+            if (fuelLeaksImageInput && !fuelLeaksImageInput.dataset.savedFile) {
+                fuelLeaksImageInput.setAttribute('required', 'required');
+            }
+        } else {
+            // Hide and remove required for any other selection
+            fuelLeaksImageContainer.style.display = 'none';
+            if (fuelLeaksImageInput) {
+                fuelLeaksImageInput.removeAttribute('required');
+            }
+        }
+    }
+    
+    fuelLeaksRadios.forEach(radio => {
+        radio.addEventListener('change', toggleFuelLeaksImage);
+    });
+    
+    // Initial check
+    toggleFuelLeaksImage();
 }

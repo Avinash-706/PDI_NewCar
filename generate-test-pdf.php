@@ -116,18 +116,7 @@ function testGenerateHTML($data, $maxStep) {
     
     // Step 2
     if ($maxStep >= 2) {
-        $html .= '<div class="step-header">STEP 2 — EXPERT DETAILS</div>';
-        $html .= testField('Inspection Delayed', $data['inspection_delayed'] ?? '');
-        
-        // Image
-        $images = [];
-        $images[] = testGenerateImage('Your photo with car\'s number plate', $data['car_photo_path'] ?? '');
-        $html .= testGenerateImageGrid($images);
-    }
-    
-    // Step 3
-    if ($maxStep >= 3) {
-        $html .= '<div class="step-header">STEP 3 — CAR DETAILS</div>';
+        $html .= '<div class="step-header">STEP 2 — CAR DETAILS</div>';
         $html .= testField('Car Company', $data['car_company'] ?? '');
         $html .= testField('Registration Number', $data['car_registration_number'] ?? '');
         $html .= testField('Fuel Type', testFormatArray($data['fuel_type'] ?? []));
