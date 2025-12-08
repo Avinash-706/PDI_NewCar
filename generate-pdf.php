@@ -526,8 +526,8 @@ function generateStyles() {
         /* Step header - 20% larger with RED theme */
         .step-header { 
             background: #ffebee; 
-            padding: 12px 15px; 
-            font-size: 15.6px; 
+            padding: 10px 12px; 
+            font-size: 12.6px; 
             font-weight: bold;
             margin: 20px 0 15px 0;
             border-left: 5px solid #D32F2F;
@@ -547,13 +547,13 @@ function generateStyles() {
             color: #333; 
             display: inline-block; 
             width: 40%; 
-            font-size: 12px;
+            font-size: 10px;
         }
         .field-value { 
             color: #000; 
             display: inline-block; 
             width: 58%; 
-            font-size: 12px;
+            font-size: 10px;
         }
         .field-value.missing { 
             color: #d32f2f; 
@@ -576,25 +576,39 @@ function generateStyles() {
             padding: 5px;
         }
         
-        /* Image label - Bold and emphasized with RED theme */
+        /* Image label - UNIFORM styling for all images */
         .image-label {
-            font-size: 14px;
+            font-size: 11px;
             font-weight: bold;
             color: #c62828;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
-            line-height: 1.4;
-            min-height: 32px;
+            line-height: 1.3;
+            height: 28px;
             display: block;
+            overflow: hidden;
         }
         
-        /* Image styling - LARGER uniform dimensions, clean and professional */
-        .image-grid img {
-            width: 300px !important;
-            height: 225px !important;
-            border: none;
-            display: block;
+        /* Image container - Fixed bounding box for uniform sizing */
+        .image-container {
+            width: 240px;
+            height: 198px;
             margin: 0 auto;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+        }
+        
+        /* Image styling - Force stretch to fill container height */
+        .image-grid img {
+            width: auto;
+            height: 196px !important;
+            max-width: 238px;
+            border: none;
+            display: inline-block;
+            vertical-align: middle;
         }
         
         /* Location section with RED theme */
@@ -722,9 +736,9 @@ function generateImage($label, $path, $required = false) {
         }
     }
     
-    // OPTIMIZED DIMENSIONS: 300x225 pixels (larger, 70% quality for speed)
-    // This ensures clear visibility while maintaining fast PDF generation
-    $uniformPath = ImageOptimizer::resizeToUniform($absolutePath, 300, 225, 70);
+    // UNIFORM DIMENSIONS: 240x198 pixels (maintains aspect ratio, 70% quality for speed)
+    // Images are fitted within this box and centered on white background
+    $uniformPath = ImageOptimizer::resizeToUniform($absolutePath, 240, 198, 70);
     
     // Return array for table-based grid
     return [
@@ -767,7 +781,9 @@ function generateImageGrid($images) {
         foreach ($row as $image) {
             $html .= '<td>';
             $html .= '<div class="image-label">' . $image['label'] . '</div>';
-            $html .= '<img src="' . $image['path'] . '" alt="' . $image['label'] . '" width="300" height="225">';
+            $html .= '<div class="image-container">';
+            $html .= '<img src="' . $image['path'] . '" alt="' . $image['label'] . '">';
+            $html .= '</div>';
             $html .= '</td>';
         }
         

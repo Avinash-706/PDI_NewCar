@@ -67,3 +67,113 @@
 [08-Dec-2025 13:36:35 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNew\pdfs\inspection_dsasfd_1765181183.pdf
 [08-Dec-2025 13:36:35 Asia/Kolkata] === SMTP PHASE COMPLETE ===
 [08-Dec-2025 13:36:35 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+2025-12-08 15:29:11 - Draft load error: Draft not found - Context: {"draft_id":"draft_6936a051753f94.87669950"}
+[08-Dec-2025 15:46:14 Asia/Kolkata] Deleted replaced image: uploads/drafts/car_image_dashboard_1765188969_abc49d77.jpg
+[08-Dec-2025 15:46:14 Asia/Kolkata] Deleted replaced thumbnail: uploads/drafts\thumb_car_image_dashboard_1765188969_abc49d77.jpg
+[08-Dec-2025 15:46:51 Asia/Kolkata] Form submission received. Files count: 75, POST fields: 41
+[08-Dec-2025 15:46:51 Asia/Kolkata] Step 4 Checkbox Debug:
+[08-Dec-2025 15:46:51 Asia/Kolkata]   registration_certificate: NOT SET
+[08-Dec-2025 15:46:51 Asia/Kolkata]   car_insurance: NOT SET
+[08-Dec-2025 15:46:51 Asia/Kolkata]   car_finance_noc: NOT SET
+[08-Dec-2025 15:46:51 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[08-Dec-2025 15:46:51 Asia/Kolkata]   bifuel_certification: NOT SET
+[08-Dec-2025 15:46:51 Asia/Kolkata] Total files processed: 10
+[08-Dec-2025 15:46:51 Asia/Kolkata] Generating PDF with 10 images
+[08-Dec-2025 15:47:01 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNEW\pdfs\inspection_dsasf_1765189021.pdf
+[08-Dec-2025 15:47:01 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6936a47d9b55c7.78284590
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6936a47d9b55c7.78284590
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/payment_proof_1765188850_5eb7ad2e.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_payment_proof_1765188850_5eb7ad2e.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_front_1765188948_d45c2dd7.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_front_1765188948_d45c2dd7.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_back_1765188954_85d60d5b.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_back_1765188954_85d60d5b.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_driver_side_1765188960_cf976610.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_driver_side_1765188960_cf976610.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_passenger_side_1765188964_4014b3ff.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_passenger_side_1765188964_4014b3ff.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_dashboard_1765188974_8b571889.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_dashboard_1765188974_8b571889.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_1_1765188993_03b7b772.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_1_1765188993_03b7b772.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_2_1765188998_7ab079ee.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_2_1765188998_7ab079ee.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_3_1765189003_c0f17440.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_3_1765189003_c0f17440.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_5_1765189009_31ab0739.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_5_1765189009_31ab0739.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted audit log: D:\SEMESTER - VII\pdiNEW\drafts\audit\draft_6936a47d9b55c7.78284590.log
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNEW\uploads\drafts\draft_6936a47d9b55c7.78284590.json
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6936a47d9b55c7.78284590 - Deleted 10 images, 1 files, Freed 6.35 MB
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Draft deleted - 10 images, 6.35 MB freed
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1765189011_6936a593625e9.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1765189011_6936a5936362b.jpeg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1765189011_6936a593648d9.jpeg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1765189011_6936a59365972.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_240x198_compressed_submission_1765189011_6936a593625e9.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_240x198_compressed_submission_1765189011_6936a5936362b.jpeg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_240x198_compressed_submission_1765189011_6936a593648d9.jpeg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_240x198_compressed_submission_1765189011_6936a59365972.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1765189011_6936a593625e9.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1765189011_6936a5936362b.jpeg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1765189011_6936a593648d9.jpeg
+[08-Dec-2025 15:47:01 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1765189011_6936a59365972.jpg
+[08-Dec-2025 15:47:01 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[08-Dec-2025 15:47:01 Asia/Kolkata] Draft deleted: Yes
+[08-Dec-2025 15:47:01 Asia/Kolkata] Images deleted: 14
+[08-Dec-2025 15:47:01 Asia/Kolkata] Compressed deleted: 4
+[08-Dec-2025 15:47:01 Asia/Kolkata] Uniform deleted: 4
+[08-Dec-2025 15:47:01 Asia/Kolkata] Thumbnails deleted: 0
+[08-Dec-2025 15:47:01 Asia/Kolkata] Total space freed: 9.13 MB
+[08-Dec-2025 15:47:01 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[08-Dec-2025 15:47:01 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[08-Dec-2025 15:47:13 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNEW\pdfs\inspection_dsasf_1765189021.pdf
+[08-Dec-2025 15:47:13 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[08-Dec-2025 15:47:13 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
+[08-Dec-2025 15:57:49 Asia/Kolkata] Form submission received. Files count: 75, POST fields: 38
+[08-Dec-2025 15:57:49 Asia/Kolkata] Step 4 Checkbox Debug:
+[08-Dec-2025 15:57:49 Asia/Kolkata]   registration_certificate: NOT SET
+[08-Dec-2025 15:57:49 Asia/Kolkata]   car_insurance: NOT SET
+[08-Dec-2025 15:57:49 Asia/Kolkata]   car_finance_noc: NOT SET
+[08-Dec-2025 15:57:49 Asia/Kolkata]   car_purchase_invoice: NOT SET
+[08-Dec-2025 15:57:49 Asia/Kolkata]   bifuel_certification: NOT SET
+[08-Dec-2025 15:57:49 Asia/Kolkata] Total files processed: 7
+[08-Dec-2025 15:57:49 Asia/Kolkata] Generating PDF with 7 images
+[08-Dec-2025 15:57:57 Asia/Kolkata] PDF generated successfully: D:\SEMESTER - VII\pdiNEW\pdfs\inspection_dasfsdadfs_1765189676.pdf
+[08-Dec-2025 15:57:57 Asia/Kolkata] === CLEANUP PHASE 1: Starting immediate cleanup after PDF generation ===
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleting draft and all images for draft ID: draft_6936a7b9471f19.08638057
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Starting cleanup for draft: draft_6936a7b9471f19.08638057
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/payment_proof_1765189561_5f477548.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_payment_proof_1765189561_5f477548.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_front_1765189569_011e34d0.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_front_1765189569_011e34d0.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_back_1765189573_0a169d53.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_back_1765189573_0a169d53.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_driver_side_1765189577_fdfe1ae9.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_driver_side_1765189577_fdfe1ae9.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_dashboard_1765189581_a4832a4e.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_dashboard_1765189581_a4832a4e.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/car_image_passenger_side_1765189585_b3b2ab8a.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_car_image_passenger_side_1765189585_b3b2ab8a.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted image: uploads/drafts/issue_photo_1_1765189667_35b53147.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted thumbnail: uploads/drafts\thumb_issue_photo_1_1765189667_35b53147.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted audit log: D:\SEMESTER - VII\pdiNEW\drafts\audit\draft_6936a7b9471f19.08638057.log
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted draft file: D:\SEMESTER - VII\pdiNEW\uploads\drafts\draft_6936a7b9471f19.08638057.json
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Successfully cleaned up draft draft_6936a7b9471f19.08638057 - Deleted 7 images, 1 files, Freed 5.25 MB
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Draft deleted - 7 images, 5.25 MB freed
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted compressed image: compressed_submission_1765189669_6936a8253ba3b.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted uniform image: uniform_240x198_compressed_submission_1765189669_6936a8253ba3b.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] Cleanup: Deleted remaining image: submission_1765189669_6936a8253ba3b.jpg
+[08-Dec-2025 15:57:57 Asia/Kolkata] === CLEANUP PHASE 1 COMPLETE ===
+[08-Dec-2025 15:57:57 Asia/Kolkata] Draft deleted: Yes
+[08-Dec-2025 15:57:57 Asia/Kolkata] Images deleted: 8
+[08-Dec-2025 15:57:57 Asia/Kolkata] Compressed deleted: 1
+[08-Dec-2025 15:57:57 Asia/Kolkata] Uniform deleted: 1
+[08-Dec-2025 15:57:57 Asia/Kolkata] Thumbnails deleted: 0
+[08-Dec-2025 15:57:57 Asia/Kolkata] Total space freed: 5.84 MB
+[08-Dec-2025 15:57:57 Asia/Kolkata] === USER RESPONSE SENT - User can now start new inspection ===
+[08-Dec-2025 15:57:57 Asia/Kolkata] === SMTP PHASE: Starting email sending in background ===
+[08-Dec-2025 15:58:08 Asia/Kolkata] SMTP: Email sent successfully for: D:\SEMESTER - VII\pdiNEW\pdfs\inspection_dasfsdadfs_1765189676.pdf
+[08-Dec-2025 15:58:08 Asia/Kolkata] === SMTP PHASE COMPLETE ===
+[08-Dec-2025 15:58:08 Asia/Kolkata] === SUBMISSION WORKFLOW COMPLETE ===
