@@ -324,6 +324,20 @@ function generateCompleteHTML($data) {
         }
     }
     
+    // Sun Roof (relocated from Step 8)
+    $sunRoofValue = $data['sun_roof'] ?? '';
+    if ($sunRoofValue !== 'Not Available') {
+        // Only show Sun Roof field if not "Not Available"
+        $html .= generateField('Sun Roof', $sunRoofValue, true);
+        
+        // Show Sun Roof image if Working or Not Working
+        if (($sunRoofValue === 'Working' || $sunRoofValue === 'Not Working') && !empty($data['sun_roof_image_path'])) {
+            $images = [];
+            $images[] = generateImage('Sun Roof Image', $data['sun_roof_image_path'], true);
+            $html .= generateImageGrid($images);
+        }
+    }
+    
     // ========================================================================
     // STEP 7: OBD Scan
     // ========================================================================
@@ -367,7 +381,6 @@ function generateCompleteHTML($data) {
     $html .= generateField('Entertainment System', $data['entertainment_system'] ?? '', true);
     $html .= generateField('Cruise Control', $data['cruise_control'] ?? '', true);
     $html .= generateField('Interior Lights', $data['interior_lights'] ?? '', true);
-    $html .= generateField('Sun Roof', $data['sun_roof'] ?? '', true);
     $html .= generateField('Bonnet Release Operation', $data['bonnet_release_operation'] ?? '', true);
     $html .= generateField('Fuel Cap Release Operation', $data['fuel_cap_release_operation'] ?? '', true);
     $html .= generateField('Check Onboard Computer ADBlue Level- Diesel Cars', $data['adblue_level'] ?? '', true);
@@ -687,6 +700,14 @@ function generateField($label, $value, $required = false) {
     
     // Convert value to string for comparison
     $value = (string)$value;
+    
+    // Convert to uppercase for user-entered text fields (not system-generated or dropdown values)
+    // This ensures all user-typed text appears in uppercase in the PDF
+    if (!empty($value) && !in_array($value, ['Ok', 'Not Ok', 'Yes', 'No', 'Present', 'Not Present', 
+        'Online', 'Cash', 'Petrol', 'Diesel', 'CNG', 'Electric', 'Manual', 'Automatic', 
+        'Alloy', 'Steel', 'Tubeless', 'Tube Type', 'Unchecked', 'Not Checked'])) {
+        $value = strtoupper($value);
+    }
     
     // Check if value is empty
     if ($value === '' || $value === null) {

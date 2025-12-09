@@ -110,6 +110,26 @@ try {
     // Prepare data for PDF
     $formData = $_POST;
     
+    // Load form schema to identify text fields
+    $formSchema = require_once 'form-schema.php';
+    
+    // Convert text fields to uppercase
+    foreach ($formData as $fieldName => $value) {
+        // Find field type in schema
+        $fieldType = null;
+        foreach ($formSchema as $step) {
+            if (isset($step['fields'][$fieldName])) {
+                $fieldType = $step['fields'][$fieldName]['type'];
+                break;
+            }
+        }
+        
+        // Convert text and textarea fields to uppercase
+        if (($fieldType === 'text' || $fieldType === 'textarea') && is_string($value)) {
+            $formData[$fieldName] = strtoupper($value);
+        }
+    }
+    
     // Merge uploaded file paths
     $formData = array_merge($formData, $uploadedFiles);
     

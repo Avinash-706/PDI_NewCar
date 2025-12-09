@@ -115,6 +115,8 @@ return [
             'driver_front_fender' => ['label' => 'Driver - Front Fender', 'type' => 'checkbox', 'required' => true, 'has_image' => true],
             // ... (48 more fields)
             'car_roof_outside' => ['label' => 'Car Roof Outside', 'type' => 'checkbox', 'required' => true, 'has_image' => true],
+            'sun_roof' => ['label' => 'Sun Roof', 'type' => 'radio', 'required' => true],
+            'sun_roof_image' => ['label' => 'Sun Roof Image', 'type' => 'file', 'required' => false], // Conditionally required via JS
         ]
     ],
     
@@ -155,7 +157,6 @@ return [
             'entertainment_system' => ['label' => 'Entertainment System', 'type' => 'radio', 'required' => true],
             'cruise_control' => ['label' => 'Cruise Control', 'type' => 'radio', 'required' => true],
             'interior_lights' => ['label' => 'Interior Lights', 'type' => 'radio', 'required' => true],
-            'sun_roof' => ['label' => 'Sun Roof', 'type' => 'radio', 'required' => true],
             'bonnet_release_operation' => ['label' => 'Bonnet Release Operation', 'type' => 'radio', 'required' => true],
             'fuel_cap_release_operation' => ['label' => 'Fuel Cap Release Operation', 'type' => 'radio', 'required' => true],
             'adblue_level' => ['label' => 'Check Onboard Computer ADBlue Level- Diesel Cars', 'type' => 'radio', 'required' => true],

@@ -61,6 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup conditional Fuel Leaks Image
     setupFuelLeaksImageConditional();
     
+    // Setup conditional Sun Roof Image
+    setupSunRoofImageConditional();
+    
     // Auto-save on input change
     const formInputs = document.querySelectorAll('input, textarea, select');
     formInputs.forEach(input => {
@@ -703,8 +706,12 @@ function saveDraft() {
             const selected = Array.from(input.selectedOptions).map(opt => opt.value);
             draftData.form_data[input.name] = selected;
         } else {
-            // Handle regular inputs
-            draftData.form_data[input.name] = input.value;
+            // Handle regular inputs - Convert text inputs to uppercase
+            let value = input.value;
+            if ((input.type === 'text' || input.tagName === 'TEXTAREA') && !input.readOnly) {
+                value = value.toUpperCase();
+            }
+            draftData.form_data[input.name] = value;
         }
     });
     
@@ -863,8 +870,12 @@ function loadDraft() {
                             option.selected = values.includes(option.value);
                         });
                     } else {
-                        // Handle regular inputs
-                        firstField.value = value;
+                        // Handle regular inputs - Convert text to uppercase
+                        let finalValue = value;
+                        if ((firstField.type === 'text' || firstField.tagName === 'TEXTAREA') && !firstField.readOnly) {
+                            finalValue = String(value).toUpperCase();
+                        }
+                        firstField.value = finalValue;
                     }
                 }
             }
@@ -976,6 +987,11 @@ function loadDraft() {
                 // Trigger conditional Fuel Leaks Image
                 if (typeof setupFuelLeaksImageConditional === 'function') {
                     setupFuelLeaksImageConditional();
+                }
+                
+                // Trigger conditional Sun Roof Image
+                if (typeof setupSunRoofImageConditional === 'function') {
+                    setupSunRoofImageConditional();
                 }
                 
                 // Trigger OK checkbox logic for Step 6 (Exterior Body)
@@ -1979,4 +1995,38 @@ function setupFuelLeaksImageConditional() {
     
     // Initial check
     toggleFuelLeaksImage();
+}
+
+// Setup conditional Sun Roof Image field
+function setupSunRoofImageConditional() {
+    const sunRoofRadios = document.querySelectorAll('input[name="sun_roof"]');
+    const sunRoofImageContainer = document.getElementById('sun_roof_image_container');
+    const sunRoofImageInput = document.getElementById('sunRoofImage');
+    
+    if (!sunRoofRadios.length || !sunRoofImageContainer) return;
+    
+    function toggleSunRoofImage() {
+        const selectedRadio = Array.from(sunRoofRadios).find(r => r.checked);
+        
+        if (selectedRadio && (selectedRadio.value === 'Working' || selectedRadio.value === 'Not Working')) {
+            // Show and make required if "Working" or "Not Working" is selected
+            sunRoofImageContainer.style.display = 'block';
+            if (sunRoofImageInput && !sunRoofImageInput.dataset.savedFile) {
+                sunRoofImageInput.setAttribute('required', 'required');
+            }
+        } else {
+            // Hide and remove required if "Not Available" is selected
+            sunRoofImageContainer.style.display = 'none';
+            if (sunRoofImageInput) {
+                sunRoofImageInput.removeAttribute('required');
+            }
+        }
+    }
+    
+    sunRoofRadios.forEach(radio => {
+        radio.addEventListener('change', toggleSunRoofImage);
+    });
+    
+    // Initial check
+    toggleSunRoofImage();
 }

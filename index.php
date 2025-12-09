@@ -830,6 +830,35 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                     echo '</div>';
                 }
                 ?>
+
+                <!-- Sun Roof Field (relocated from Step 8) -->
+                <div class="form-group">
+                    <label>Sun Roof <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="sun_roof" value="Working" required> Working
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="sun_roof" value="Not Working"> Not Working
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="sun_roof" value="Not Available"> Not Available
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sun Roof Image (conditional - shown only if Working or Not Working) -->
+                <div class="form-group" id="sun_roof_image_container" style="display: none;">
+                    <label>Sun Roof Image <span class="required">*</span></label>
+                    <div class="file-upload">
+                        <input type="file" name="sun_roof_image" id="sunRoofImage" accept="image/*">
+                        <label for="sunRoofImage" class="file-label">
+                            <span class="camera-icon">📷</span>
+                            <span class="file-text">Upload Image</span>
+                        </label>
+                        <div class="file-preview" id="sunRoofImagePreview"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- STEP 7: OBD SCAN -->
@@ -1180,21 +1209,6 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
                         </label>
                         <label class="radio-label">
                             <input type="radio" name="interior_lights" value="Not Working"> Not Working
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Sun Roof <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="sun_roof" value="Working" required> Working
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="sun_roof" value="Not Working"> Not Working
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="sun_roof" value="Not Applicable"> Not Applicable
                         </label>
                     </div>
                 </div>
@@ -1939,6 +1953,43 @@ require_once __DIR__ . '/drafts/auto-cleanup.php';
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- Uppercase Transformation for Text Inputs -->
+    <style>
+        /* Force uppercase display for text inputs and textareas */
+        input[type="text"]:not([readonly]),
+        textarea:not([readonly]) {
+            text-transform: uppercase;
+        }
+    </style>
+    
+    <script>
+        // Auto-capitalize all text inputs and textareas in real-time
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all text inputs and textareas (excluding readonly fields)
+            const textInputs = document.querySelectorAll('input[type="text"]:not([readonly]), textarea:not([readonly])');
+            
+            textInputs.forEach(input => {
+                // Convert to uppercase on input
+                input.addEventListener('input', function(e) {
+                    const start = this.selectionStart;
+                    const end = this.selectionEnd;
+                    this.value = this.value.toUpperCase();
+                    this.setSelectionRange(start, end);
+                });
+                
+                // Also convert on paste
+                input.addEventListener('paste', function(e) {
+                    setTimeout(() => {
+                        const start = this.selectionStart;
+                        const end = this.selectionEnd;
+                        this.value = this.value.toUpperCase();
+                        this.setSelectionRange(start, end);
+                    }, 10);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 

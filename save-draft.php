@@ -54,12 +54,33 @@ try {
         $draftId = uniqid('draft_', true);
     }
     
+    // Load form schema to identify text fields
+    $formSchema = require_once 'form-schema.php';
+    
+    // Convert text fields to uppercase
+    $formData = $inputData['form_data'] ?? [];
+    foreach ($formData as $fieldName => $value) {
+        // Find field type in schema
+        $fieldType = null;
+        foreach ($formSchema as $step) {
+            if (isset($step['fields'][$fieldName])) {
+                $fieldType = $step['fields'][$fieldName]['type'];
+                break;
+            }
+        }
+        
+        // Convert text and textarea fields to uppercase
+        if (($fieldType === 'text' || $fieldType === 'textarea') && is_string($value)) {
+            $formData[$fieldName] = strtoupper($value);
+        }
+    }
+    
     // Prepare draft data with proper structure
     $draftData = [
         'draft_id' => $draftId,
         'timestamp' => time(),
         'current_step' => $inputData['current_step'] ?? 1,
-        'form_data' => $inputData['form_data'] ?? [],
+        'form_data' => $formData,
         'uploaded_files' => $inputData['uploaded_files'] ?? []
     ];
     

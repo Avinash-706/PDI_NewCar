@@ -31,6 +31,28 @@ try {
         throw new Exception('Invalid draft data');
     }
     
+    // Load form schema to identify text fields
+    $formSchema = require __DIR__ . '/../form-schema.php';
+    
+    // Convert text fields to uppercase
+    if (isset($draftData['form_data'])) {
+        foreach ($draftData['form_data'] as $fieldName => $value) {
+            // Find field type in schema
+            $fieldType = null;
+            foreach ($formSchema as $step) {
+                if (isset($step['fields'][$fieldName])) {
+                    $fieldType = $step['fields'][$fieldName]['type'];
+                    break;
+                }
+            }
+            
+            // Convert text and textarea fields to uppercase
+            if (($fieldType === 'text' || $fieldType === 'textarea') && is_string($value)) {
+                $draftData['form_data'][$fieldName] = strtoupper($value);
+            }
+        }
+    }
+    
     $response['success'] = true;
     $response['message'] = 'Draft loaded successfully';
     $response['draft_data'] = $draftData;
